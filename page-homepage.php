@@ -192,7 +192,7 @@
             </li>
         </ul>
     </div>
-    <header data-bs-theme="light">
+    <header data-bs-theme="light"> 
         <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light px-4" style="z-index:1000000000;">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
@@ -232,15 +232,142 @@
     </header>
 
     <main>
-        <div class="container pt-5">
-            <?php if ( have_posts() ) : ?>
-                <?php while ( have_posts() ) : the_post();?>
-                    <?php the_content(); ?>
-                <?php endwhile;  ?>
-            <?php else: ?>
-                <p>!Sorry no posts here</p>
-            <?php endif; ?>
+        <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="bd-placeholder-img"
+                        src="<?php echo \App\Models\Setting::getThemeOption('slider_1_image', get_template_directory_uri() . '/image/bg-design-desktop.jpg'); ?>"
+                    />
+                    <div class="container">
+                        <div class="carousel-caption text-start">
+                            <h1><?php echo \App\Models\Setting::getThemeOption('slider_1_title', 'Example headline.'); ?></h1>
+                            <p class="opacity-75">
+								<?php echo \App\Models\Setting::getThemeOption('slider_1_description', 'Some representative placeholder content for the first slide of thecarousel.'); ?></p>
+                            <p><a class="btn btn-lg btn-light" href="<?php echo \App\Models\Setting::getThemeOption('slider_1_button_link', ''); ?>"><?php echo \App\Models\Setting::getThemeOption('slider_1_button_text', 'Sign up today'); ?></a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="bd-placeholder-img" src="<?php echo get_template_directory_uri(); ?>/image/future-positive-challenge-desktop.jpg" />
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1><?php echo \App\Models\Setting::getThemeOption('slider_2_title', 'Another example headline.'); ?></h1>
+                            <p><?php echo \App\Models\Setting::getThemeOption('slider_2_description', 'Some representative placeholder content for the second slide of the carousel.'); ?></p>
+                            <p><a class="btn btn-lg btn-light" href="<?php echo \App\Models\Setting::getThemeOption('slider_2_button_link', ''); ?>"><?php echo \App\Models\Setting::getThemeOption('slider_2_button_text', 'Learn more'); ?></a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="bd-placeholder-img" src="<?php echo get_template_directory_uri(); ?>/image/climate-positive-desk.png" />
+                    <div class="container">
+                        <div class="carousel-caption text-end">
+                            <h1><?php echo \App\Models\Setting::getThemeOption('slider_3_title', 'One more for good measure.'); ?></h1>
+                            <p><?php echo \App\Models\Setting::getThemeOption('slider_3_description', 'Some representative placeholder content for the third slide of this carousel.'); ?></p>
+                            <p><a class="btn btn-lg btn-light" href="<?php echo \App\Models\Setting::getThemeOption('slider_3_button_link', ''); ?>"><?php echo \App\Models\Setting::getThemeOption('slider_3_button_text', 'Browse gallery'); ?></a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
+
+
+        <!-- Marketing messaging and featurettes
+  ================================================== -->
+        <!-- Wrap the rest of the page in another container to center all the content. -->
+
+        <div class="container marketing d-none">
+
+            <!-- Three columns of text below the carousel -->
+            <div class="row">
+                <div class="col-lg-4">
+                <img class="rounded-circle" src="<?php echo get_template_directory_uri(); ?>/image/desktop_grey-video-conferencing.png" width="140" height="140" alt="">
+                    <h2 class="fw-normal mt-3">Heading</h2>
+                    <p>Some representative placeholder content for the three columns of text below the carousel. This is
+                        the first column.</p>
+                    <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                    <img class="rounded-circle" src="<?php echo get_template_directory_uri(); ?>/image/desktop_grey-headsets.png" width="140" height="140" alt="">
+                    <h2 class="fw-normal mt-3">Heading</h2>
+                    <p>Another exciting bit of representative placeholder content. This time, we've moved on to the
+                        second column.</p>
+                    <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                <img class="rounded-circle" src="<?php echo get_template_directory_uri(); ?>/image/desktop-grey-mobile-devices-4.png" width="140" height="140" alt="">
+                    <h2 class="fw-normal mt-3">Heading</h2>
+                    <p>And lastly this, the third column of representative placeholder content.</p>
+                    <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+                </div><!-- /.col-lg-4 -->
+            </div><!-- /.row -->
+
+
+            <!-- START THE FEATURETTES -->
+
+            <hr class="featurette-divider">
+
+            <div class="row featurette">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading fw-normal lh-1">First featurette heading. <span
+                            class="text-body-secondary">It’ll blow your mind.</span></h2>
+                    <p class="lead mt-3">Some great placeholder content for the first featurette here. Imagine some exciting
+                        prose here.</p>
+                </div>
+                <div class="col-md-5">
+                    <img class="featurette-image img-fluid mx-auto" src="<?php echo get_template_directory_uri(); ?>/image/zone-wireless-2-hpb-feature-2.webp" width="500px" alt="">
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+
+            <div class="row featurette">
+                <div class="col-md-7 order-md-2">
+                    <h2 class="featurette-heading fw-normal lh-1">Oh yeah, it’s that good. <span
+                            class="text-body-secondary">See for yourself.</span></h2>
+                    <p class="lead mt-3">Another featurette? Of course. More placeholder content here to give you an idea of
+                        how this layout would work with some actual real-world content in place.</p>
+                </div>
+                <div class="col-md-5 order-md-1">
+                    <img class="featurette-image img-fluid mx-auto" src="<?php echo get_template_directory_uri(); ?>/image/brio-100-hpb-feature.webp" width="500px" alt="">
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+
+            <div class="row featurette">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading fw-normal lh-1">And lastly, this one. <span
+                            class="text-body-secondary">Checkmate.</span></h2>
+                    <p class="lead mt-3">And yes, this is the last block of representative placeholder content. Again, not
+                        really intended to be actually read, simply here to give you a better view of what this would
+                        look like with some actual content. Your content.</p>
+                </div>
+                <div class="col-md-5">
+                <img class="featurette-image img-fluid mx-auto" src="<?php echo get_template_directory_uri(); ?>/image/wave-keys-off-white-hpb-secondary.webp" width="500px" alt="">
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+
+            <!-- /END THE FEATURETTES -->
+
+        </div><!-- /.container -->
+
+
         <!-- FOOTER -->
         <footer class="container">
             <p class="float-end"><a href="#">Back to top</a></p>
