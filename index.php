@@ -1,4 +1,10 @@
 <?php /* Template Name: vBrand Homepage */ ?>
+
+<?php
+	// autoload vbrandsync
+	vbrandsync_getResponse('/');
+?>
+
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
 
