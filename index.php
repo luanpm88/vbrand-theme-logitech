@@ -195,7 +195,7 @@
     <header data-bs-theme="light">
         <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light px-4" style="z-index:1000000000;">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="<?php echo get_home_url(); ?>">
                     <img src="<?php echo \App\Models\Setting::getThemeOption('site_logo', 'https://upload.wikimedia.org/wikipedia/commons/1/17/Logitech_logo.svg'); ?>" width="150" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"

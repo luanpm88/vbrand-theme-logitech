@@ -1,4 +1,10 @@
 <?php /* Template Name: vBrand Homepage */ ?>
+
+<?php
+	// autoload vbrandsync
+	vbrandsync_getResponse('/');
+?>
+
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
 
@@ -254,7 +260,7 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="bd-placeholder-img" src="<?php echo get_template_directory_uri(); ?>/image/future-positive-challenge-desktop.jpg" />
+                    <img class="bd-placeholder-img" src="<?php echo \App\Models\Setting::getThemeOption('slider_2_image', get_template_directory_uri() . '/image/future-positive-challenge-desktop.jpg'); ?>" />
                     <div class="container">
                         <div class="carousel-caption">
                             <h1><?php echo \App\Models\Setting::getThemeOption('slider_2_title', 'Another example headline.'); ?></h1>
@@ -264,7 +270,7 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="bd-placeholder-img" src="<?php echo get_template_directory_uri(); ?>/image/climate-positive-desk.png" />
+                    <img class="bd-placeholder-img" src="<?php echo \App\Models\Setting::getThemeOption('slider_3_image', get_template_directory_uri() . '/image/climate-positive-desk.png'); ?>" />
                     <div class="container">
                         <div class="carousel-caption text-end">
                             <h1><?php echo \App\Models\Setting::getThemeOption('slider_3_title', 'One more for good measure.'); ?></h1>

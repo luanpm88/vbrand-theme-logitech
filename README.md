@@ -10,7 +10,7 @@
       - cd wp-content/themes
       - git clone git@github.com:luanpm88/vbrand-theme-logitech.git
    2. Activate vBrand Template One: Đăng nhập vào WordPress Admin Panel, vào menu Appearance, activate theme vBrand Template One
-   3. Tạo page mới: Vào menu Pages, tạo 1 mới 1 page bất kỳ (VD: Homepage). Bên tay phải mục Template, chọn Homepage. Chọn publish.
+   3. Tạo page mới: Vào menu Pages, tạo 1 mới 1 page bất kỳ (VD: Homepage). Bên tay phải mục Template, chọn vBrand Homepage. Chọn publish.
    4. Cấu hình homepage: Vào menu Appearance => Customize => Homepage settings => HomePage => Chọn Homepage. Chọn Publish.
    5. Mở trang chính của WordPress site sẽ thấy theme đẹp full nội dung...
 
