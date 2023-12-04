@@ -10,11 +10,14 @@ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
 Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
 */
 
+:root,
+[data-bs-theme=light] {
+    --bs-link-color-rgb: #333;
+    --bs-link-hover-color-rgb: #000;
+}
 a {
-    color: #333;
     text-decoration: none;
 }
 a:hover {
-    color: #000;
     text-decoration: underline;
 }
