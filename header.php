@@ -153,7 +153,7 @@
         </symbol>
     </svg>
 
-    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle d-none">
+    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
         <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button"
             aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (auto)">
             <svg class="bi my-1 theme-icon-active" width="1em" height="1em">
@@ -241,29 +241,3 @@
 
     <main>
         <div class="container pt-5">
-            <?php if ( have_posts() ) : ?>
-                <?php while ( have_posts() ) : the_post();?>
-                    <!-- <h1><?php the_title(); ?></h1> -->
-                    <?php the_content(); ?>
-                <?php endwhile;  ?>
-            <?php else: ?>
-                <p>!Sorry no posts here</p>
-            <?php endif; ?>
-        </div>
-        <!-- FOOTER -->
-        <footer class="container mt-5">
-            <p class="float-end"><a href="#">Back to top</a></p>
-            <p>&copy; 2017–2023 Company, Inc. &middot; <a href="#" class="fw-semibold">Privacy</a> &middot; <a href="#" class="fw-semibold">Terms</a></p>
-        </footer>
-    </main>
-    <script src="https://getbootstrap.com/docs/5.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-    </script>
-
-	<?php
-		wp_footer();
-	?>
-
-</body>
-
-</html>
