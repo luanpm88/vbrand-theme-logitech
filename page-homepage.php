@@ -328,9 +328,14 @@
                         $content = $post->post_content;
                         $content = strip_tags($content);
                         $shortDescription = substr($content, 0, 100);
+                        $thumbnail_url = get_the_post_thumbnail_url($post->ID, 'medium');
                     ?>
                         <div class="col-lg-<?php echo 12/$numOfPosts; ?>">
-                            <img class="rounded-circle" src="<?php echo get_template_directory_uri(); ?>/image/desktop_grey-video-conferencing.png" width="140" height="140" alt="">
+                            <?php if ($thumbnail_url) { ?> 
+                                <img class="rounded-circle" src="<?php echo $thumbnail_url; ?>" width="140" height="140" alt="">
+                            <?php } else { ?>
+                                <img class="rounded-circle" src="<?php echo get_template_directory_uri(); ?>/image/placeholder.svg" width="140" height="140" alt="">
+                            <?php } ?>
                             <h2 class="fw-normal mt-3"><?php echo $post->post_title; ?></h2>
                             <p><?php echo $shortDescription; ?></p>
                             <p>
