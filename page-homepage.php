@@ -295,90 +295,94 @@
         <!-- Marketing messaging and featurettes
   ================================================== -->
         <!-- Wrap the rest of the page in another container to center all the content. -->
-
         <div class="container marketing">
 
-            <!-- Three columns of text below the carousel -->
-            <div class="row">
-                <div class="col-lg-4">
-                <img class="rounded-circle" src="<?php echo get_template_directory_uri(); ?>/image/desktop_grey-video-conferencing.png" width="140" height="140" alt="">
-                    <h2 class="fw-normal mt-3">Heading</h2>
-                    <p>Some representative placeholder content for the three columns of text below the carousel. This is
-                        the first column.</p>
-                    <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
-                </div><!-- /.col-lg-4 -->
-                <div class="col-lg-4">
-                    <img class="rounded-circle" src="<?php echo get_template_directory_uri(); ?>/image/desktop_grey-headsets.png" width="140" height="140" alt="">
-                    <h2 class="fw-normal mt-3">Heading</h2>
-                    <p>Another exciting bit of representative placeholder content. This time, we've moved on to the
-                        second column.</p>
-                    <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
-                </div><!-- /.col-lg-4 -->
-                <div class="col-lg-4">
-                <img class="rounded-circle" src="<?php echo get_template_directory_uri(); ?>/image/desktop-grey-mobile-devices-4.png" width="140" height="140" alt="">
-                    <h2 class="fw-normal mt-3">Heading</h2>
-                    <p>And lastly this, the third column of representative placeholder content.</p>
-                    <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
-                </div><!-- /.col-lg-4 -->
-            </div><!-- /.row -->
+            <?php if (\App\Models\Setting::getThemeOption('home_articles_block_show')) { ?>
+                <!-- Three columns of text below the carousel -->
+                <div class="row">
 
+                    <?php
+                        $numOfPosts = \App\Models\Setting::getThemeOption('home_articles_block_number');
+                        $sort = \App\Models\Setting::getThemeOption('home_articles_block_sort');
 
-            <!-- START THE FEATURETTES -->
+                        $args = array( 'numberposts' => $numOfPosts );
+                        $args['post_status'] = 'publish';
 
-            <hr class="featurette-divider">
+                        if ($sort == 'newest') {
+                            $args['order'] = 'DESC';
+                            $args['orderby'] = 'post_date';
+                        } else if ($sort == 'oldest') {
+                            $args['order'] = 'ASC';
+                            $args['orderby'] = 'post_date';
+                        } else {
+                            $args['order'] = 'DESC';
+                            $args['orderby'] = 'post_date';
+                        }
 
-            <div class="row featurette">
-                <div class="col-md-7">
-                    <h2 class="featurette-heading fw-normal lh-1">First featurette heading. <span
-                            class="text-body-secondary">It’ll blow your mind.</span></h2>
-                    <p class="lead mt-3">Some great placeholder content for the first featurette here. Imagine some exciting
-                        prose here.</p>
+                        
+                        $postslist = get_posts( $args );
+                    ?>
+                    
+
+                    <?php foreach ($postslist as $post) {
+                        $content = $post->post_content;
+                        $content = strip_tags($content);
+                        $shortDescription = substr($content, 0, 100);
+                    ?>
+                        <div class="col-lg-<?php echo 12/$numOfPosts; ?>">
+                            <img class="rounded-circle" src="<?php echo get_template_directory_uri(); ?>/image/desktop_grey-video-conferencing.png" width="140" height="140" alt="">
+                            <h2 class="fw-normal mt-3"><?php echo $post->post_title; ?></h2>
+                            <p><?php echo $shortDescription; ?></p>
+                            <p>
+                                <a class="btn btn-secondary" href="<?php echo get_permalink($post->ID); ?>">
+                                    <?php echo \App\Models\Setting::getThemeOption('home_articles_block_view_button_text'); ?> &raquo;
+                                </a>
+                            </p>
+                        </div><!-- /.col-lg-4 -->
+                    <?php } ?>
+                </div><!-- /.row -->
+
+                <hr class="featurette-divider">
+            <?php } ?>
+
+            <?php if (\App\Models\Setting::getThemeOption('home_feature_block_show')) { ?>
+                <!-- START THE FEATURETTES -->
+
+                <div class="row featurette">
+                    <div class="col-md-7">
+                        <h2 class="featurette-heading fw-normal lh-1"><?php echo \App\Models\Setting::getThemeOption('home_feature_block_1_title'); ?></h2>
+                        <p class="lead mt-3"><?php echo \App\Models\Setting::getThemeOption('home_feature_block_1_description'); ?></p>
+                    </div>
+                    <div class="col-md-5">
+                        <img class="featurette-image img-fluid mx-auto" src="<?php echo \App\Models\Setting::getThemeOption('home_feature_block_1_image'); ?>" width="500px" alt="">
+                    </div>
                 </div>
-                <div class="col-md-5">
-                    <img class="featurette-image img-fluid mx-auto" src="<?php echo get_template_directory_uri(); ?>/image/zone-wireless-2-hpb-feature-2.webp" width="500px" alt="">
+
+                <hr class="featurette-divider">
+
+                <div class="row featurette">
+                    <div class="col-md-7 order-md-2">
+                        <h2 class="featurette-heading fw-normal lh-1"><?php echo \App\Models\Setting::getThemeOption('home_feature_block_2_title'); ?></h2>
+                        <p class="lead mt-3"><?php echo \App\Models\Setting::getThemeOption('home_feature_block_2_description'); ?></p>
+                    </div>
+                    <div class="col-md-5 order-md-1">
+                        <img class="featurette-image img-fluid mx-auto" src="<?php echo \App\Models\Setting::getThemeOption('home_feature_block_2_image'); ?>" width="500px" alt="">
+                    </div>
                 </div>
-            </div>
 
-            <hr class="featurette-divider">
+                <hr class="featurette-divider">
 
-            <div class="row featurette">
-                <div class="col-md-7 order-md-2">
-                    <h2 class="featurette-heading fw-normal lh-1">Oh yeah, it’s that good. <span
-                            class="text-body-secondary">See for yourself.</span></h2>
-                    <p class="lead mt-3">Another featurette? Of course. More placeholder content here to give you an idea of
-                        how this layout would work with some actual real-world content in place.</p>
-                </div>
-                <div class="col-md-5 order-md-1">
-                    <img class="featurette-image img-fluid mx-auto" src="<?php echo get_template_directory_uri(); ?>/image/brio-100-hpb-feature.webp" width="500px" alt="">
-                </div>
-            </div>
+                <!-- /END THE FEATURETTES -->
 
-            <hr class="featurette-divider">
-
-            <div class="row featurette">
-                <div class="col-md-7">
-                    <h2 class="featurette-heading fw-normal lh-1">And lastly, this one. <span
-                            class="text-body-secondary">Checkmate.</span></h2>
-                    <p class="lead mt-3">And yes, this is the last block of representative placeholder content. Again, not
-                        really intended to be actually read, simply here to give you a better view of what this would
-                        look like with some actual content. Your content.</p>
-                </div>
-                <div class="col-md-5">
-                <img class="featurette-image img-fluid mx-auto" src="<?php echo get_template_directory_uri(); ?>/image/wave-keys-off-white-hpb-secondary.webp" width="500px" alt="">
-                </div>
-            </div>
-
-            <hr class="featurette-divider">
-
-            <!-- /END THE FEATURETTES -->
+            <?php } ?>
 
         </div><!-- /.container -->
 
 
         <!-- FOOTER -->
         <footer class="container mt-5">
-            <p class="float-end"><a href="#">Back to top</a></p>
-            <p>&copy; 2017–2023 Company, Inc. &middot; <a href="#" class="fw-semibold">Privacy</a> &middot; <a href="#" class="fw-semibold">Terms</a></p>
+            <p class="float-end"><a href="#"><?php echo \App\Models\Setting::getThemeOption('back_to_top_text'); ?></a></p>
+            <p><?php echo \App\Models\Setting::getThemeOption('copyright_line'); ?></p>
         </footer>
     </main>
     <script src="https://getbootstrap.com/docs/5.3/dist/js/bootstrap.bundle.min.js"
