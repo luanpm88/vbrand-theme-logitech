@@ -141,7 +141,7 @@ return [
         'type' => 'select',
         'name' => 'home_articles_block_sort',
         'label' => 'Home Articles Block: Sort',
-        'default' => 'oldest',
+        'default' => 'newest',
         'options' => [
             ['value' => 'newest', 'text' => 'Newest'],
             ['value' => 'oldest', 'text' => 'Oldest'],
