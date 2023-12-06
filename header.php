@@ -16,7 +16,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.118.2">
-    <title><?php echo \App\Models\Setting::getThemeOption('site_name', 'vBrand Logitech Theme'); ?></title>
+    <title><?php echo \App\Models\Setting::getThemeOption('site_name'); ?></title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
 
@@ -204,7 +204,7 @@
         <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light px-4" style="z-index:1000000000;">
             <div class="container-fluid">
                 <a class="navbar-brand" href="<?php echo get_home_url(); ?>">
-                    <img src="<?php echo \App\Models\Setting::getThemeOption('site_logo', 'https://upload.wikimedia.org/wikipedia/commons/1/17/Logitech_logo.svg'); ?>" width="150" alt="">
+                    <img src="<?php echo \App\Models\Setting::getThemeOption('site_logo'); ?>" width="150" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                     aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">

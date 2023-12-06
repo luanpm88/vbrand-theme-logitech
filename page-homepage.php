@@ -203,7 +203,7 @@
         <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light px-4" style="z-index:1000000000;">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <img src="<?php echo \App\Models\Setting::getThemeOption('site_logo', 'https://upload.wikimedia.org/wikipedia/commons/1/17/Logitech_logo.svg'); ?>" width="150" alt="">
+                    <img src="<?php echo \App\Models\Setting::getThemeOption('site_logo'); ?>" width="150" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                     aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -249,34 +249,34 @@
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img class="bd-placeholder-img"
-                        src="<?php echo \App\Models\Setting::getThemeOption('slider_1_image', get_template_directory_uri() . '/image/bg-design-desktop.jpg'); ?>"
+                        src="<?php echo \App\Models\Setting::getThemeOption('slider_1_image'); ?>"
                     />
                     <div class="container">
                         <div class="carousel-caption text-start">
-                            <h1><?php echo \App\Models\Setting::getThemeOption('slider_1_title', 'Example headline.'); ?></h1>
+                            <h1><?php echo \App\Models\Setting::getThemeOption('slider_1_title'); ?></h1>
                             <p class="opacity-75">
-								<?php echo \App\Models\Setting::getThemeOption('slider_1_description', 'Some representative placeholder content for the first slide of thecarousel.'); ?></p>
-                            <p><a class="btn btn-lg btn-light" href="<?php echo \App\Models\Setting::getThemeOption('slider_1_button_link', ''); ?>"><?php echo \App\Models\Setting::getThemeOption('slider_1_button_text', 'Sign up today'); ?></a></p>
+								<?php echo \App\Models\Setting::getThemeOption('slider_1_description'); ?></p>
+                            <p><a class="btn btn-lg btn-light" href="<?php echo \App\Models\Setting::getThemeOption('slider_1_button_link', ''); ?>"><?php echo \App\Models\Setting::getThemeOption('slider_1_button_text'); ?></a></p>
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="bd-placeholder-img" src="<?php echo \App\Models\Setting::getThemeOption('slider_2_image', get_template_directory_uri() . '/image/future-positive-challenge-desktop.jpg'); ?>" />
+                    <img class="bd-placeholder-img" src="<?php echo \App\Models\Setting::getThemeOption('slider_2_image'); ?>" />
                     <div class="container">
                         <div class="carousel-caption">
-                            <h1><?php echo \App\Models\Setting::getThemeOption('slider_2_title', 'Another example headline.'); ?></h1>
-                            <p><?php echo \App\Models\Setting::getThemeOption('slider_2_description', 'Some representative placeholder content for the second slide of the carousel.'); ?></p>
-                            <p><a class="btn btn-lg btn-light" href="<?php echo \App\Models\Setting::getThemeOption('slider_2_button_link', ''); ?>"><?php echo \App\Models\Setting::getThemeOption('slider_2_button_text', 'Learn more'); ?></a></p>
+                            <h1><?php echo \App\Models\Setting::getThemeOption('slider_2_title'); ?></h1>
+                            <p><?php echo \App\Models\Setting::getThemeOption('slider_2_description'); ?></p>
+                            <p><a class="btn btn-lg btn-light" href="<?php echo \App\Models\Setting::getThemeOption('slider_2_button_link', ''); ?>"><?php echo \App\Models\Setting::getThemeOption('slider_2_button_text'); ?></a></p>
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="bd-placeholder-img" src="<?php echo \App\Models\Setting::getThemeOption('slider_3_image', get_template_directory_uri() . '/image/climate-positive-desk.png'); ?>" />
+                    <img class="bd-placeholder-img" src="<?php echo \App\Models\Setting::getThemeOption('slider_3_image'); ?>" />
                     <div class="container">
                         <div class="carousel-caption text-end">
-                            <h1><?php echo \App\Models\Setting::getThemeOption('slider_3_title', 'One more for good measure.'); ?></h1>
-                            <p><?php echo \App\Models\Setting::getThemeOption('slider_3_description', 'Some representative placeholder content for the third slide of this carousel.'); ?></p>
-                            <p><a class="btn btn-lg btn-light" href="<?php echo \App\Models\Setting::getThemeOption('slider_3_button_link', ''); ?>"><?php echo \App\Models\Setting::getThemeOption('slider_3_button_text', 'Browse gallery'); ?></a></p>
+                            <h1><?php echo \App\Models\Setting::getThemeOption('slider_3_title'); ?></h1>
+                            <p><?php echo \App\Models\Setting::getThemeOption('slider_3_description'); ?></p>
+                            <p><a class="btn btn-lg btn-light" href="<?php echo \App\Models\Setting::getThemeOption('slider_3_button_link'); ?>"><?php echo \App\Models\Setting::getThemeOption('slider_3_button_text'); ?></a></p>
                         </div>
                     </div>
                 </div>
