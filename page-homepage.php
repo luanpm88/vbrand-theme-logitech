@@ -381,6 +381,144 @@
 
             <?php } ?>
 
+            <?php if (\App\Models\Setting::getThemeOption('products_module_show')) { ?>
+                <section>
+                    <h2 class="text-center"><?php echo \App\Models\Setting::getThemeOption('products_module_title'); ?></h2>
+                    <div class="pb-5 pt-4">
+                        <div class="row">
+                        <?php
+                                $count = \App\Models\Setting::getThemeOption('products_module_number');
+                                $case = \App\Models\Setting::getThemeOption('products_module_type');
+
+                                switch ($case) {
+                                    case "hot":
+                                        $args = array(
+                                            'post_type'      => 'product',
+                                            'posts_per_page' => $count,
+                                            'meta_query'     => array(
+                                                'relation' => 'OR',
+                                                array(
+                                                    'key'   => 'hot_product', // Change this to your hot product custom field
+                                                    'value' => '1',           // Assuming '1' means it's marked as hot
+                                                )
+                                            ),
+                                        ); 
+                                        break;                        
+                                    case "feature":
+                                        $args = array(
+                                            'post_type'      => 'product',
+                                            'posts_per_page' => $count,
+                                            'meta_query'     => array(
+                                                'relation' => 'OR' ,
+                                                array(
+                                                    'key'   => '_featured',   // WooCommerce uses '_featured' for featured products
+                                                    'value' => 'yes',
+                                                ),
+                                            ),
+                                        );
+                                        break;
+                                    case "new":
+                                        $args = array(
+                                            'post_type'      => 'product',
+                                            'posts_per_page' => $count,
+                                            'meta_query'     => array(
+                                                'relation' => 'OR',
+                                                array(
+                                                    'key'   => 'new_product', // Change this to your new product custom field
+                                                    'value' => '1',           // Assuming '1' means it's marked as new
+                                                ), 
+                                            ),
+                                        );
+                                    default:
+                                        $args = array(
+                                            'post_type'      => 'product',
+                                            'posts_per_page' => $count,
+                                        );
+                                } 
+                                
+                                $products = new WP_Query($args);
+                                if ($products->have_posts()){ 
+                                    while ($products->have_posts()){
+                                        $products->the_post();
+                                        // Ensure visibility.
+                                        if ( empty( $product ) || ! $product->is_visible() ) {
+                                            return;
+                                        }
+                                        ?>
+                                        <div class="col-lg-<?php echo 12/$count; ?>">
+                                            <div class="card d-block">
+                                                <div class="d-flex justify-content-between p-3">
+                                                    <p class="lead mb-0 fw-semibold"><?=the_title()?></p>
+                                                    <!-- <div
+                                                    class="bg-info rounded-circle d-flex align-items-center justify-content-center shadow-1-strong"
+                                                    style="width: 35px; height: 35px;">
+                                                    <p class="text-white mb-0 small">x4</p>
+                                                    </div> -->
+                                                </div>
+                                                <?php if (wp_get_attachment_image_src(get_the_ID())) { ?>
+                                                    <?php the_post_thumbnail('single-post-thumbnail', array('class' => 'card-img-top')); ?>
+                                                <?php } else { ?>
+                                                    <img src="<?=get_template_directory_uri()?>/image/empty_box.png" class="card-img-top">
+                                                <?php } ?>
+                                                <div class="card-body">
+                                                    <!-- <div class="d-flex justify-content-between">
+                                                    <p class="small"><a href="#!" class="text-muted">Laptops</a></p>
+                                                    <p class="small text-danger"><s>$1099</s></p>
+                                                    </div> -->
+
+                                                    <div class="d-flex justify-content-between mb-3">
+                                                        <h5 class="mb-0">Price</h5>
+                                                        <h5 class="text-dark mb-0"><?=wc_price(get_post_meta(get_the_ID(), '_price', true))?></h5>
+                                                    </div>
+
+                                                    <div class="text-center">
+                                                        <a href="<?=esc_url(get_permalink())?>" class="btn btn-light">Xem chi tiết</a>
+                                                    </div>
+
+                                                    <div class="d-flex justify-content-between mb-2 d-none">
+                                                        <p class="text-muted mb-0">Available: <span class="fw-bold">6</span></p>
+                                                        <div class="ms-auto text-warning">
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Start Column 2 -->
+                                        <div class="d-none col-lg-<?php echo 12/($count+1); ?>">
+                                            <a class="product-item" href="<?=esc_url(get_permalink())?>">
+                                                <?php if (wp_get_attachment_image_src(get_the_ID())) { ?>
+                                                    <?php the_post_thumbnail('single-post-thumbnail', array('class' => 'img-fluid product-thumbnail')); ?>
+                                                <?php } else { ?>
+                                                    <img src="<?=get_template_directory_uri()?>/images/empty_box.png" class="img-fluid product-thumbnail">
+                                                <?php } ?>
+                                                
+                                                <h3 class="product-title"><?=the_title()?></h3>
+                                                <strong class="product-price"><?=wc_price(get_post_meta(get_the_ID(), '_price', true))?></strong>
+
+                                                <span class="icon-cross">
+                                                    <img src="<?=get_template_directory_uri()?>/images/cross.svg" class="img-fluid">
+                                                </span>
+                                            </a>
+                                        </div> 
+                                        <!-- End Column 2 --> 
+                                    <?php	
+                                    }
+                                }
+                                wp_reset_postdata(); // Đặt lại truy vấn sản phẩm
+                            ?>
+                        </div>
+                    </div>
+                </section>
+
+                <hr class="featurette-divider">
+
+            <?php } ?>
+
         </div><!-- /.container -->
 
 

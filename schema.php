@@ -119,6 +119,49 @@ return [
         'default' => 'Browse gallery',
     ],
 
+    // PRODUCTS MODULE
+    [
+        'type' => 'boolean',
+        'name' => 'products_module_show',
+        'label' => 'Show Products Module',
+        'default' => true,
+    ],
+    [
+        'type' => 'text',
+        'name' => 'products_module_title',
+        'label' => 'Products Module Title',
+        'default' => 'SẢN PHẨM MỚI',
+    ],
+    [
+        'type' => 'textarea',
+        'name' => 'products_module_description',
+        'label' => 'Products Module Description',
+        'default' => 'Mẫu sản phẩm mới nhất được chúng tôi cập nhật hàng ngày',
+    ],
+    [
+        'type' => 'select',
+        'name' => 'products_module_type',
+        'label' => 'Products Module: Type',
+        'default' => 'all',
+        'options' => [
+            ['value' => 'all', 'text' => 'Mặc định'],
+            ['value' => 'hot', 'text' => 'Hot'],
+            ['value' => 'feature', 'text' => 'Feature'],
+            ['value' => 'new', 'text' => 'New'],
+        ],
+    ],
+    [
+        'type' => 'select',
+        'name' => 'products_module_number',
+        'label' => 'Products Module: Number of Products',
+        'default' => 3,
+        'options' => [
+            ['value' => 2, 'text' => 2],
+            ['value' => 3, 'text' => 3],
+            ['value' => 5, 'text' => 5],
+        ],
+    ],
+
     // ARTICLES BLOCK
     [
         'type' => 'boolean',
