@@ -154,11 +154,11 @@ return [
         'type' => 'select',
         'name' => 'products_module_number',
         'label' => 'Products Module: Number of Products',
-        'default' => 3,
+        'default' => 4,
         'options' => [
-            ['value' => 2, 'text' => 2],
             ['value' => 3, 'text' => 3],
-            ['value' => 5, 'text' => 5],
+            ['value' => 4, 'text' => 4],
+            ['value' => 6, 'text' => 6],
         ],
     ],
 
