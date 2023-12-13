@@ -1,12 +1,12 @@
-<?php /* Template Name: vBrand Homepage */ ?>
-
 <?php
-	// autoload vbrandsync
-	vbrandsync_getResponse('/');
+    if (!class_exists('\App\Models\Setting')) {
+        // autoload vbrandsync
+        vbrandsync_getResponse('/');
+    } 
 ?>
 
 <!doctype html>
-<html lang="en" data-bs-theme="auto">
+<html lang="en" data-bs-theme="light">
 
 <head>
     <script src="https://getbootstrap.com/docs/5.3/assets/js/color-modes.js"></script>
@@ -16,7 +16,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.118.2">
-    <title><?php echo \App\Models\Setting::getThemeOption('site_name'); ?></title>
+    <title><?php echo \App\Models\Setting::getThemeOption('site_name', 'vBrand Logitech Theme'); ?></title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
 
@@ -28,9 +28,8 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
+	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style.css" />
 
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style.css" />
-    
     <style>
     .bd-placeholder-img {
         font-size: 1.125rem;
@@ -153,7 +152,7 @@
         </symbol>
     </svg>
 
-    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle d-none">
         <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button"
             aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (auto)">
             <svg class="bi my-1 theme-icon-active" width="1em" height="1em">
@@ -200,10 +199,10 @@
             </li>
         </ul>
     </div>
-    <header data-bs-theme="light">
+    <header> 
         <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light px-4" style="z-index:1000000000;">
             <div class="container-fluid">
-                <a class="navbar-brand" href="<?php echo get_home_url(); ?>">
+                <a class="navbar-brand" href="#">
                     <img src="<?php echo \App\Models\Setting::getThemeOption('site_logo'); ?>" width="150" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
@@ -212,13 +211,32 @@
                 </button>
                 <div class="collapse navbar-collapse py-3" id="navbarCollapse">
                     <ul class="navbar-nav me-auto mb-2 mb-md-0 justify-content-center" style="width:100%">
-						<?php foreach (vbrand_theme_logitech_get_categories() as $category) { ?>
-							<li class="nav-item me-3">
-								<a class="nav-link text-uppercase fw-semibold" aria-current="page" href="<?php echo get_term_link( $category->cat_ID, 'product_cat' ); ?>">
-									<?php echo $category->name; ?>
-								</a>
-							</li>
-						<?php } ?>
+                        <li class="nav-item mx-md-3">
+                            <a class="nav-link active" aria-current="page" href="<?= get_home_url() ?>">Trang chủ</a>
+                        </li>
+                        <li class="nav-item mx-md-3">
+                            <a class="nav-link active" aria-current="page" href="#">Giới thiệu</a>
+                        </li>
+                        <li class="nav-item mx-md-3 dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Cửa hàng
+                            </a>
+                            <ul class="dropdown-menu">
+                                <?php foreach (vbrand_theme_logitech_get_categories() as $category) { ?>
+                                    <li>
+                                        <a class="dropdown-item" href="<?php echo get_term_link( $category->cat_ID, 'product_cat' ); ?>">
+                                            <?php echo $category->name; ?>
+                                        </a>
+                                    </li>
+                                <?php } ?>
+                            </ul>
+                        </li>
+                        <li class="nav-item mx-md-3">
+                            <a class="nav-link active" aria-current="page" href="#">Blog</a>
+                        </li>
+						<li class="nav-item mx-md-3">
+                            <a class="nav-link active" aria-current="page" href="#">Liên hệ</a>
+                        </li>
                     </ul>
                     <div>
                         <div class="d-flex align-items-center">
@@ -240,4 +258,3 @@
     </header>
 
     <main>
-        <div class="container pt-5">

@@ -21,3 +21,9 @@ a {
 a:hover {
     text-decoration: underline;
 }
+.admin-bar .navbar.fixed-top {
+  top: 32px;
+}
+.admin-bar {
+  padding-top: 80px;
+}
