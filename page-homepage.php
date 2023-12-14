@@ -220,7 +220,7 @@
                                         </div><?php
                                             $images = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'single-post-thumbnail' );
                                         ?>
-                                        <?php if (count($images)) { ?>
+                                        <?php if (is_array($images)) { ?>
                                             <img src="<?=$images[0]?>" class="card-img-top">
                                         <?php } else { ?>
                                             <img src="<?=get_template_directory_uri()?>/image/empty_box.png" class="card-img-top">
