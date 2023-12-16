@@ -22,7 +22,6 @@ return [
         'type' => 'list',
         'name' => 'home_sliders',
         'label' => 'Home Sliders',
-        'min' => 0,
         'max' => 10,
         'default' => [],
         'schema' => [
@@ -255,7 +254,7 @@ return [
         'default' => get_template_directory_uri() . '/image/zone-wireless-2-hpb-feature-2.webp',
     ],
     [
-        'type' => 'text',
+        'type' => 'textarea',
         'name' => 'home_feature_block_1_title',
         'label' => 'Home Feature Block 1: Title',
         'default' => 'First featurette heading. <span
@@ -275,7 +274,7 @@ return [
         'default' => get_template_directory_uri() . '/image//brio-100-hpb-feature.webp',
     ],
     [
-        'type' => 'text',
+        'type' => 'textarea',
         'name' => 'home_feature_block_2_title',
         'label' => 'Home Feature Block 2: Title',
         'default' => 'Oh yeah, it’s that good. <span
@@ -299,7 +298,7 @@ return [
     
     // BACK TO TOP TEXT
     [
-        'type' => 'textarea',
+        'type' => 'text',
         'name' => 'back_to_top_text',
         'label' => 'Go to top text',
         'default' => 'Back to Top',
