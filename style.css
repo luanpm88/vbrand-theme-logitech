@@ -27,3 +27,17 @@ a:hover {
 .admin-bar {
   padding-top: 80px;
 }
+.has-sidebar .page-container {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.has-sidebar #primary {
+  width: 100%;
+}
+.has-sidebar #sidebar {
+  width: 350px;
+}
+.woocommerce ul.products li img, .woocommerce-page ul.products li img {
+  padding: 10px!important;
+  background-color: #efefef;
+}

@@ -1,2 +1,2 @@
 <?php include 'header.php'; ?>
-<div class="container mt-5">
+<div class="container mt-5 page-container">
