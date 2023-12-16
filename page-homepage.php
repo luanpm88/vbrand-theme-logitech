@@ -5,45 +5,30 @@
         
 <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
     <div class="carousel-indicators">
-        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"
-            aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <?php foreach (\App\Models\Setting::getThemeOption('home_sliders') as $key => $slider) {
+        ?>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="<?= $key ?>" <?= ($key == 0) ? 'class="active"' : '' ?>
+                aria-current="true" aria-label="<?php echo $slider['title'] ?? ''; ?>"></button>
+        <?php } ?>
     </div>
     <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img class="bd-placeholder-img"
-                src="<?php echo \App\Models\Setting::getThemeOption('slider_1_image'); ?>"
-            />
-            <div class="container">
-                <div class="carousel-caption text-start">
-                    <h1><?php echo \App\Models\Setting::getThemeOption('slider_1_title'); ?></h1>
-                    <p class="opacity-75">
-                        <?php echo \App\Models\Setting::getThemeOption('slider_1_description'); ?></p>
-                    <p><a class="btn btn-lg btn-light" href="<?php echo \App\Models\Setting::getThemeOption('slider_1_button_link', ''); ?>"><?php echo \App\Models\Setting::getThemeOption('slider_1_button_text'); ?></a></p>
+        <?php foreach (\App\Models\Setting::getThemeOption('home_sliders') as $key => $slider) {
+        ?>
+            <div class="carousel-item <?= ($key == 0) ? 'active' : '' ?>">
+                <img class="bd-placeholder-img"
+                    src="<?php echo $slider['image'] ?? ''; ?>"
+                />
+                <div class="container">
+                    <div class="carousel-caption text-start">
+                        <h1><?php echo $slider['title'] ?? ''; ?></h1>
+                        <p class="opacity-75">
+                            <?php echo $slider['description'] ?? ''; ?>
+                        </p>
+                        <p><a class="btn btn-lg btn-light" href="<?php echo $slider['button_link'] ?? ''; ?>"><?php echo $slider['button_text'] ?? ''; ?></a></p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="carousel-item">
-            <img class="bd-placeholder-img" src="<?php echo \App\Models\Setting::getThemeOption('slider_2_image'); ?>" />
-            <div class="container">
-                <div class="carousel-caption">
-                    <h1><?php echo \App\Models\Setting::getThemeOption('slider_2_title'); ?></h1>
-                    <p><?php echo \App\Models\Setting::getThemeOption('slider_2_description'); ?></p>
-                    <p><a class="btn btn-lg btn-light" href="<?php echo \App\Models\Setting::getThemeOption('slider_2_button_link', ''); ?>"><?php echo \App\Models\Setting::getThemeOption('slider_2_button_text'); ?></a></p>
-                </div>
-            </div>
-        </div>
-        <div class="carousel-item">
-            <img class="bd-placeholder-img" src="<?php echo \App\Models\Setting::getThemeOption('slider_3_image'); ?>" />
-            <div class="container">
-                <div class="carousel-caption text-end">
-                    <h1><?php echo \App\Models\Setting::getThemeOption('slider_3_title'); ?></h1>
-                    <p><?php echo \App\Models\Setting::getThemeOption('slider_3_description'); ?></p>
-                    <p><a class="btn btn-lg btn-light" href="<?php echo \App\Models\Setting::getThemeOption('slider_3_button_link'); ?>"><?php echo \App\Models\Setting::getThemeOption('slider_3_button_text'); ?></a></p>
-                </div>
-            </div>
-        </div>
+        <?php } ?>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>

@@ -18,45 +18,46 @@ return [
     ],
 
     // SIDE Sliders
-    // [
-    //     'type' => 'list',
-    //     'name' => 'home_sliders',
-    //     'label' => 'Home Sliders',
-    //     'min' => 0,
-    //     'max' => 10,
-    //     'schema' => [
-    //         [
-    //             'type' => 'image',
-    //             'name' => 'image',
-    //             'label' => 'Slider Image',
-    //             'default' => get_template_directory_uri() . '/image/bg-design-desktop.jpg',
-    //         ],
-    //         [
-    //             'type' => 'text',
-    //             'name' => 'title',
-    //             'label' => 'Title',
-    //             'default' => 'Example headline.',
-    //         ],
-    //         [
-    //             'type' => 'textarea',
-    //             'name' => 'description',
-    //             'label' => 'Description',
-    //             'default' => 'Some representative placeholder content for the first slide of thecarousel.',
-    //         ],
-    //         [
-    //             'type' => 'text',
-    //             'name' => 'button_link',
-    //             'label' => 'Button Link',
-    //             'default' => '',
-    //         ],
-    //         [
-    //             'type' => 'text',
-    //             'name' => 'button_text',
-    //             'label' => 'Button Text',
-    //             'default' => 'Sign up today',
-    //         ],
-    //     ],
-    // ],
+    [
+        'type' => 'list',
+        'name' => 'home_sliders',
+        'label' => 'Home Sliders',
+        'min' => 0,
+        'max' => 10,
+        'default' => [],
+        'schema' => [
+            [
+                'type' => 'image',
+                'name' => 'image',
+                'label' => 'Slider Image',
+                'default' => get_template_directory_uri() . '/image/bg-design-desktop.jpg',
+            ],
+            [
+                'type' => 'text',
+                'name' => 'title',
+                'label' => 'Title',
+                'default' => 'Example headline.',
+            ],
+            [
+                'type' => 'textarea',
+                'name' => 'description',
+                'label' => 'Description',
+                'default' => 'Some representative placeholder content for the first slide of thecarousel.',
+            ],
+            [
+                'type' => 'text',
+                'name' => 'button_link',
+                'label' => 'Button Link',
+                'default' => '',
+            ],
+            [
+                'type' => 'text',
+                'name' => 'button_text',
+                'label' => 'Button Text',
+                'default' => 'Sign up today',
+            ],
+        ],
+    ],
 
     // SLIDER BLOCK
     // show
