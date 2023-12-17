@@ -23,7 +23,20 @@ return [
         'name' => 'home_sliders',
         'label' => 'Home Sliders',
         'max' => 10,
-        'default' => [],
+        'default' => [
+            [
+                'image' => get_template_directory_uri() . '/image/future-positive-challenge-desktop.jpg',
+                'title' => 'Example headline.',
+                'button_text' => 'Sign up today',
+                'description' => 'Some representative placeholder content for the first slide of thecarousel.',
+            ],
+            [
+                'image' => get_template_directory_uri() . '/image/bg-design-desktop.jpg',
+                'title' => 'Another example headline.',
+                'button_text' => 'Learn more',
+                'description' => 'Some representative placeholder content for the first slide of thecarousel.',
+            ],
+        ],
         'schema' => [
             [
                 'type' => 'image',
