@@ -17,7 +17,15 @@ return [
         'default' => 'https://upload.wikimedia.org/wikipedia/commons/1/17/Logitech_logo.svg',
     ],
 
-    // SIDE Sliders
+    // SLIDER BLOCK
+    // show
+    [
+        'type' => 'boolean',
+        'name' => 'show_home_slider',
+        'label' => 'Show home slider',
+        'default' => true,
+    ],
+    // sliders
     [
         'type' => 'list',
         'name' => 'home_sliders',
@@ -35,6 +43,12 @@ return [
                 'title' => 'Another example headline.',
                 'button_text' => 'Learn more',
                 'description' => 'Some representative placeholder content for the first slide of thecarousel.',
+            ],
+            [
+                'image' => get_template_directory_uri() . '/image/climate-positive-desk.png',
+                'title' => 'One more for good measure.',
+                'button_text' => 'Learn more',
+                'description' => 'Some representative placeholder content for the third slide of this carousel.',
             ],
         ],
         'schema' => [
@@ -69,108 +83,6 @@ return [
                 'default' => 'Sign up today',
             ],
         ],
-    ],
-
-    // SLIDER BLOCK
-    // show
-    [
-        'type' => 'boolean',
-        'name' => 'show_home_slider',
-        'label' => 'Show home slider',
-        'default' => true,
-    ],
-    // slider #1
-    [
-        'type' => 'image',
-        'name' => 'slider_1_image',
-        'label' => 'Slider 1: Image',
-        'default' => get_template_directory_uri() . '/image/bg-design-desktop.jpg',
-    ],
-    [
-        'type' => 'text',
-        'name' => 'slider_1_title',
-        'label' => 'Slider 1: Title',
-        'default' => 'Example headline.',
-    ],
-    [
-        'type' => 'textarea',
-        'name' => 'slider_1_description',
-        'label' => 'Slider 1: Description',
-        'default' => 'Some representative placeholder content for the first slide of thecarousel.',
-    ],
-    [
-        'type' => 'text',
-        'name' => 'slider_1_button_link',
-        'label' => 'Slider 1: Button Link',
-        'default' => '',
-    ],
-    [
-        'type' => 'text',
-        'name' => 'slider_1_button_text',
-        'label' => 'Slider 1: Button Text',
-        'default' => 'Sign up today',
-    ],
-    // slider #2
-    [
-        'type' => 'image',
-        'name' => 'slider_2_image',
-        'label' => 'Slider 2: Image',
-        'default' => get_template_directory_uri() . '/image/future-positive-challenge-desktop.jpg',
-    ],
-    [
-        'type' => 'text',
-        'name' => 'slider_2_title',
-        'label' => 'Slider 2: Title',
-        'default' => 'Another example headline.',
-    ],
-    [
-        'type' => 'textarea',
-        'name' => 'slider_2_description',
-        'label' => 'Slider 2: Description',
-        'default' => 'Some representative placeholder content for the second slide of the carousel.',
-    ],
-    [
-        'type' => 'text',
-        'name' => 'slider_2_button_link',
-        'label' => 'Slider 2: Button Link',
-        'default' => '',
-    ],
-    [
-        'type' => 'text',
-        'name' => 'slider_2_button_text',
-        'label' => 'Slider 2: Button Text',
-        'default' => 'Learn more',
-    ],
-    // slider #3
-    [
-        'type' => 'image',
-        'name' => 'slider_3_image',
-        'label' => 'Slider 3: Image',
-        'default' => get_template_directory_uri() . '/image/climate-positive-desk.png',
-    ],
-    [
-        'type' => 'text',
-        'name' => 'slider_3_title',
-        'label' => 'Slider 3: Title',
-        'default' => 'One more for good measure.',
-    ],
-    [
-        'type' => 'textarea',
-        'name' => 'slider_3_description',
-        'label' => 'Slider 3: Description',
-        'default' => 'Some representative placeholder content for the third slide of this carousel.',
-    ],
-    [
-        'type' => 'text',
-        'name' => 'slider_3_button_link',
-        'label' => 'Slider 3: Button Link',
-        'default' => '',
-    ],
-    [
-        'type' => 'text',
-        'name' => 'slider_3_button_text',
-        'label' => 'Slider 3: Button Text',
-        'default' => 'Browse gallery',
     ],
 
     // PRODUCTS MODULE
@@ -261,44 +173,48 @@ return [
         'default' => true,
     ],
     [
-        'type' => 'image',
-        'name' => 'home_feature_block_1_image',
-        'label' => 'Home Feature Block 1: Image',
-        'default' => get_template_directory_uri() . '/image/zone-wireless-2-hpb-feature-2.webp',
-    ],
-    [
-        'type' => 'textarea',
-        'name' => 'home_feature_block_1_title',
-        'label' => 'Home Feature Block 1: Title',
-        'default' => 'First featurette heading. <span
-            class="text-body-secondary">It’ll blow your mind.</span>',
-    ],
-    [
-        'type' => 'textarea',
-        'name' => 'home_feature_block_1_description',
-        'label' => 'Home Feature Block 1: Description',
-        'default' => 'Some great placeholder content for the first featurette here. Imagine some exciting
-            prose here.',
-    ],
-    [
-        'type' => 'image',
-        'name' => 'home_feature_block_2_image',
-        'label' => 'Home Feature Block 2: Image',
-        'default' => get_template_directory_uri() . '/image//brio-100-hpb-feature.webp',
-    ],
-    [
-        'type' => 'textarea',
-        'name' => 'home_feature_block_2_title',
-        'label' => 'Home Feature Block 2: Title',
-        'default' => 'Oh yeah, it’s that good. <span
-            class="text-body-secondary">See for yourself.</span>',
-    ],
-    [
-        'type' => 'textarea',
-        'name' => 'home_feature_block_2_description',
-        'label' => 'Home Feature Block 2: Description',
-        'default' => 'Another featurette? Of course. More placeholder content here to give you an idea of
-            how this layout would work with some actual real-world content in place.',
+        'type' => 'list',
+        'name' => 'articles_block',
+        'label' => 'Home Articles Block',
+        'max' => 10,
+        'default' => [
+            [
+                'image' => get_template_directory_uri() . '/image/zone-wireless-2-hpb-feature-2.webp',
+                'title' => 'First featurette heading. <span
+                    class="text-body-secondary">It’ll blow your mind.</span>',
+                'description' => 'Some great placeholder content for the first featurette here. Imagine some exciting
+                    prose here.',
+            ],
+            [
+                'image' => get_template_directory_uri() . '/image//brio-100-hpb-feature.webp',
+                'title' => 'Oh yeah, it’s that good. <span
+                    class="text-body-secondary">See for yourself.</span>',
+                'description' => 'Another featurette? Of course. More placeholder content here to give you an idea of
+                    how this layout would work with some actual real-world content in place.',
+            ],
+        ],
+        'schema' => [
+            [
+                'type' => 'image',
+                'name' => 'image',
+                'label' => 'Image',
+                'default' => get_template_directory_uri() . '/image/zone-wireless-2-hpb-feature-2.webp',
+            ],
+            [
+                'type' => 'textarea',
+                'name' => 'title',
+                'label' => 'Title',
+                'default' => 'First featurette heading. <span
+                    class="text-body-secondary">It’ll blow your mind.</span>',
+            ],
+            [
+                'type' => 'textarea',
+                'name' => 'description',
+                'label' => 'Description',
+                'default' => 'Some great placeholder content for the first featurette here. Imagine some exciting
+                    prose here.',
+            ],
+        ],
     ],
 
     // FOOTER

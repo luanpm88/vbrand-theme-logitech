@@ -3,42 +3,44 @@
 
 <?php include 'header.php'; ?>
         
-<div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-        <?php foreach (\App\Models\Setting::getThemeOption('home_sliders') as $key => $slider) {
-        ?>
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="<?= $key ?>" <?= ($key == 0) ? 'class="active"' : '' ?>
-                aria-current="true" aria-label="<?php echo $slider['title'] ?? ''; ?>"></button>
-        <?php } ?>
-    </div>
-    <div class="carousel-inner">
-        <?php foreach (\App\Models\Setting::getThemeOption('home_sliders') as $key => $slider) {
-        ?>
-            <div class="carousel-item <?= ($key == 0) ? 'active' : '' ?>">
-                <img class="bd-placeholder-img"
-                    src="<?php echo $slider['image'] ?? ''; ?>"
-                />
-                <div class="container">
-                    <div class="carousel-caption text-start">
-                        <h1><?php echo $slider['title'] ?? ''; ?></h1>
-                        <p class="opacity-75">
-                            <?php echo $slider['description'] ?? ''; ?>
-                        </p>
-                        <p><a class="btn btn-lg btn-light" href="<?php echo $slider['button_link'] ?? ''; ?>"><?php echo $slider['button_text'] ?? ''; ?></a></p>
+<?php if (\App\Models\Setting::getThemeOption('show_home_slider')) { ?>
+    <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <?php foreach (\App\Models\Setting::getThemeOption('home_sliders') as $key => $slider) {
+            ?>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="<?= $key ?>" <?= ($key == 0) ? 'class="active"' : '' ?>
+                    aria-current="true" aria-label="<?php echo $slider['title'] ?? ''; ?>"></button>
+            <?php } ?>
+        </div>
+        <div class="carousel-inner">
+            <?php foreach (\App\Models\Setting::getThemeOption('home_sliders') as $key => $slider) {
+            ?>
+                <div class="carousel-item <?= ($key == 0) ? 'active' : '' ?>">
+                    <img class="bd-placeholder-img"
+                        src="<?php echo $slider['image'] ?? ''; ?>"
+                    />
+                    <div class="container">
+                        <div class="carousel-caption text-start">
+                            <h1><?php echo $slider['title'] ?? ''; ?></h1>
+                            <p class="opacity-75">
+                                <?php echo $slider['description'] ?? ''; ?>
+                            </p>
+                            <p><a class="btn btn-lg btn-light" href="<?php echo $slider['button_link'] ?? ''; ?>"><?php echo $slider['button_text'] ?? ''; ?></a></p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        <?php } ?>
+            <?php } ?>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
-</div>
+<?php } ?>
 
 
 <!-- Marketing messaging and featurettes
@@ -100,30 +102,19 @@
 
     <?php if (\App\Models\Setting::getThemeOption('home_feature_block_show')) { ?>
         <!-- START THE FEATURETTES -->
-
-        <div class="row featurette">
-            <div class="col-md-7">
-                <h2 class="featurette-heading fw-normal lh-1"><?php echo \App\Models\Setting::getThemeOption('home_feature_block_1_title'); ?></h2>
-                <p class="lead mt-3"><?php echo \App\Models\Setting::getThemeOption('home_feature_block_1_description'); ?></p>
+        <?php foreach (\App\Models\Setting::getThemeOption('articles_block') as $key => $article) {
+        ?>
+            <div class="row featurette">
+                <div class="col-md-7 <?= $key%2 == 1 ? 'order-md-2' : '' ?>">
+                    <h2 class="featurette-heading fw-normal lh-1"><?php echo $article['title'] ?? ''; ?></h2>
+                    <p class="lead mt-3"><?php echo $article['description'] ?? ''; ?></p>
+                </div>
+                <div class="col-md-5 <?= $key%2 == 1 ? 'order-md-1' : '' ?>">
+                    <img class="featurette-image img-fluid mx-auto" src="<?php echo $article['image'] ?? ''; ?>" width="500px" alt="">
+                </div>
             </div>
-            <div class="col-md-5">
-                <img class="featurette-image img-fluid mx-auto" src="<?php echo \App\Models\Setting::getThemeOption('home_feature_block_1_image'); ?>" width="500px" alt="">
-            </div>
-        </div>
-
-        <hr class="featurette-divider">
-
-        <div class="row featurette">
-            <div class="col-md-7 order-md-2">
-                <h2 class="featurette-heading fw-normal lh-1"><?php echo \App\Models\Setting::getThemeOption('home_feature_block_2_title'); ?></h2>
-                <p class="lead mt-3"><?php echo \App\Models\Setting::getThemeOption('home_feature_block_2_description'); ?></p>
-            </div>
-            <div class="col-md-5 order-md-1">
-                <img class="featurette-image img-fluid mx-auto" src="<?php echo \App\Models\Setting::getThemeOption('home_feature_block_2_image'); ?>" width="500px" alt="">
-            </div>
-        </div>
-
-        <hr class="featurette-divider">
+            <hr class="featurette-divider">
+        <?php } ?>
 
         <!-- /END THE FEATURETTES -->
 
@@ -244,14 +235,14 @@
                                         <?php if (wp_get_attachment_image_src(get_the_ID())) { ?>
                                             <?php the_post_thumbnail('single-post-thumbnail', array('class' => 'img-fluid product-thumbnail')); ?>
                                         <?php } else { ?>
-                                            <img src="<?=get_template_directory_uri()?>/images/empty_box.png" class="img-fluid product-thumbnail">
+                                            <img src="<?=get_template_directory_uri()?>/image/empty_box.png" class="img-fluid product-thumbnail">
                                         <?php } ?>
                                         
                                         <h3 class="product-title"><?=the_title()?></h3>
                                         <strong class="product-price"><?=wc_price(get_post_meta(get_the_ID(), '_price', true))?></strong>
 
                                         <span class="icon-cross">
-                                            <img src="<?=get_template_directory_uri()?>/images/cross.svg" class="img-fluid">
+                                            <img src="<?=get_template_directory_uri()?>/image/cross.svg" class="img-fluid">
                                         </span>
                                     </a>
                                 </div> 
