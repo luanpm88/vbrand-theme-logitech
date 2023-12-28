@@ -1,22 +1,19 @@
 <?php
-    if (!class_exists('\App\Models\Setting')) {
-        // autoload vbrandsync
-        vbrandsync_getResponse('/');
-    } 
+    $themeData = vbrand_load_theme_data();
 ?>
 
 <!doctype html>
 <html lang="en" data-bs-theme="light">
 
 <head>
-    <script src="https://getbootstrap.com/docs/5.3/assets/js/color-modes.js"></script>
+    <!-- <script src="https://getbootstrap.com/docs/5.3/assets/js/color-modes.js"></script> -->
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.118.2">
-    <title><?php echo \App\Models\Setting::getThemeOption('site_name', 'vBrand Logitech Theme'); ?></title>
+    <title><?php echo $themeData->get('site_name', 'vBrand Logitech Theme'); ?></title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
 
@@ -203,7 +200,7 @@
         <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light px-4" style="z-index:1000000000;">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <img src="<?php echo \App\Models\Setting::getThemeOption('site_logo'); ?>" width="150" alt="">
+                    <img src="<?php echo $themeData->get('site_logo'); ?>" width="150" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                     aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">

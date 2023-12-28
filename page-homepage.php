@@ -3,17 +3,17 @@
 
 <?php include 'header.php'; ?>
         
-<?php if (\App\Models\Setting::getThemeOption('show_home_slider')) { ?>
+<?php if ($themeData->get('show_home_slider')) { ?>
     <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
         <div class="carousel-indicators">
-            <?php foreach (\App\Models\Setting::getThemeOption('home_sliders') as $key => $slider) {
+            <?php foreach ($themeData->get('home_sliders') as $key => $slider) {
             ?>
                 <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="<?= $key ?>" <?= ($key == 0) ? 'class="active"' : '' ?>
                     aria-current="true" aria-label="<?php echo $slider['title'] ?? ''; ?>"></button>
             <?php } ?>
         </div>
         <div class="carousel-inner">
-            <?php foreach (\App\Models\Setting::getThemeOption('home_sliders') as $key => $slider) {
+            <?php foreach ($themeData->get('home_sliders') as $key => $slider) {
             ?>
                 <div class="carousel-item <?= ($key == 0) ? 'active' : '' ?>">
                     <img class="bd-placeholder-img"
@@ -47,13 +47,13 @@
 ================================================== -->
 <!-- Wrap the rest of the page in another container to center all the content. -->
 <div class="container marketing">
-    <?php if (\App\Models\Setting::getThemeOption('home_articles_block_show')) { ?>
+    <?php if ($themeData->get('home_articles_block_show')) { ?>
         <!-- Three columns of text below the carousel -->
         <div class="row">
 
             <?php
-                $numOfPosts = \App\Models\Setting::getThemeOption('home_articles_block_number');
-                $sort = \App\Models\Setting::getThemeOption('home_articles_block_sort');
+                $numOfPosts = $themeData->get('home_articles_block_number');
+                $sort = $themeData->get('home_articles_block_sort');
 
                 $args = array( 'numberposts' => $numOfPosts );
                 $args['post_status'] = 'publish';
@@ -90,7 +90,7 @@
                     <p><?php echo $shortDescription; ?></p>
                     <p>
                         <a class="btn btn-secondary" href="<?php echo get_permalink($post->ID); ?>">
-                            <?php echo \App\Models\Setting::getThemeOption('home_articles_block_view_button_text'); ?> &raquo;
+                            <?php echo $themeData->get('home_articles_block_view_button_text'); ?> &raquo;
                         </a>
                     </p>
                 </div><!-- /.col-lg-4 -->
@@ -100,9 +100,9 @@
         <hr class="featurette-divider">
     <?php } ?>
 
-    <?php if (\App\Models\Setting::getThemeOption('home_feature_block_show')) { ?>
+    <?php if ($themeData->get('home_feature_block_show')) { ?>
         <!-- START THE FEATURETTES -->
-        <?php foreach (\App\Models\Setting::getThemeOption('articles_block') as $key => $article) {
+        <?php foreach ($themeData->get('articles_block') as $key => $article) {
         ?>
             <div class="row featurette">
                 <div class="col-md-7 <?= $key%2 == 1 ? 'order-md-2' : '' ?>">
@@ -120,14 +120,14 @@
 
     <?php } ?>
 
-    <?php if (\App\Models\Setting::getThemeOption('products_module_show')) { ?>
+    <?php if ($themeData->get('products_module_show')) { ?>
         <section>
-            <h2 class="text-center"><?php echo \App\Models\Setting::getThemeOption('products_module_title'); ?></h2>
+            <h2 class="text-center"><?php echo $themeData->get('products_module_title'); ?></h2>
             <div class="pb-5 pt-4">
                 <div class="row">
                 <?php
-                        $count = \App\Models\Setting::getThemeOption('products_module_number');
-                        $case = \App\Models\Setting::getThemeOption('products_module_type');
+                        $count = $themeData->get('products_module_number');
+                        $case = $themeData->get('products_module_type');
 
                         switch ($case) {
                             case "hot":

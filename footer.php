@@ -1,7 +1,7 @@
             <!-- FOOTER -->
             <footer class="container mt-5">
-                <p class="float-end"><a href="#"><?php echo \App\Models\Setting::getThemeOption('back_to_top_text'); ?></a></p>
-                <p><?php echo \App\Models\Setting::getThemeOption('copyright_line'); ?></p>
+                <p class="float-end"><a href="#"><?php echo $themeData->get('back_to_top_text'); ?></a></p>
+                <p><?php echo $themeData->get('copyright_line'); ?></p>
             </footer>
         </main>
 
