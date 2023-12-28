@@ -5,6 +5,37 @@ function vbrand_theme_logitech_woocommerce_support() {
 }
 add_action( 'after_setup_theme', 'vbrand_theme_logitech_woocommerce_support' );
 
+/**
+*   Định nghĩa menu cho themes
+*/
+function register_logictech_menu() {
+    register_nav_menu('primary-logictech-menu', __('Primary Logintech Menu'));
+}
+add_action('after_setup_theme', 'register_logictech_menu');
+ 
+function vbrand_widget_filter() {
+	register_sidebar(array(
+    	'name' => 'filter Widget Area',
+    	'id' => 'filter-widget-area',
+    	'description' => __( 'filter of product'),
+    	'before_widget' => '<div class="widget">',
+    	'after_widget' => '</div>',
+    	'before_title' => '<h3 class="widget-title">',
+    	'after_title' => '</h3>',
+	));
+}
+add_action('widgets_init', 'vbrand_widget_filter');
+
+
+$demo_logintect_imported = get_option('demo_logintect_imported');
+if ($demo_logintect_imported !== '1') {  
+    require_once get_template_directory() . '/demo-data/import-demo-data.php'; 
+    update_option('demo_logintect_imported', '1');
+}
+
+
+
+
 function vbrand_theme_logitech_get_categories() {
     $taxonomy     = 'product_cat';
       $orderby      = 'name';  

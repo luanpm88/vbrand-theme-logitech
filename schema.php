@@ -232,4 +232,22 @@ return [
         'label' => 'Go to top text',
         'default' => 'Back to Top',
     ],
+    [
+        'type' => 'boolean',
+        'name' => 'about_us_show',
+        'label' => 'Show About Us Module',
+        'default' => true,
+    ],
+    [
+        'type' => 'text',
+        'name' => 'about_us_title',
+        'label' => 'About Us title',
+        'default' => 'Tiêu đề mặc định của trang about us ',
+    ],
+    [
+        'type' => 'textarea',
+        'name' => 'about_us_content',
+        'label' => 'About Us Content',
+        'default' => 'Nội dung mặc định của trang about us ',
+    ],
 ];
