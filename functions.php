@@ -28,12 +28,22 @@ function vbrand_widget_filter() {
 add_action('widgets_init', 'vbrand_widget_filter');
 
 
-$demo_logintect_imported = get_option('demo_logintect_imported');
-if ($demo_logintect_imported !== '1') {  
+$demo_logintech_imported = get_option('demo_logintech_imported');
+if ($demo_logintech_imported !== '1') {  
     require_once get_template_directory() . '/demo-data/import-demo-data.php'; 
-    update_option('demo_logintect_imported', '1');
+    update_option('demo_logintech_imported', '1');
 }
 
+
+function add_additional_class_on_a($classes, $item, $args)
+{
+    if (isset($args->add_a_class)) {
+        $classes['class'] = $args->add_a_class;
+    }
+    return $classes;
+}
+
+add_filter('nav_menu_link_attributes', 'add_additional_class_on_a', 1, 3);
 
 
 

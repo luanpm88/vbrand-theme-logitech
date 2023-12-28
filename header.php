@@ -207,34 +207,19 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse py-3" id="navbarCollapse">
-                    <ul class="navbar-nav me-auto mb-2 mb-md-0 justify-content-center" style="width:100%">
-                        <li class="nav-item mx-md-3">
-                            <a class="nav-link active" aria-current="page" href="<?= get_home_url() ?>">Trang chủ</a>
-                        </li>
-                        <li class="nav-item mx-md-3">
-                            <a class="nav-link active" aria-current="page" href="#">Giới thiệu</a>
-                        </li>
-                        <li class="nav-item mx-md-3 dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Cửa hàng
-                            </a>
-                            <ul class="dropdown-menu">
-                                <?php foreach (vbrand_theme_logitech_get_categories() as $category) { ?>
-                                    <li>
-                                        <a class="dropdown-item" href="<?php echo get_term_link( $category->cat_ID, 'product_cat' ); ?>">
-                                            <?php echo $category->name; ?>
-                                        </a>
-                                    </li>
-                                <?php } ?>
-                            </ul>
-                        </li>
-                        <li class="nav-item mx-md-3">
-                            <a class="nav-link active" aria-current="page" href="#">Blog</a>
-                        </li>
-						<li class="nav-item mx-md-3">
-                            <a class="nav-link active" aria-current="page" href="#">Liên hệ</a>
-                        </li>
-                    </ul>
+                     
+                     
+                        <?php 
+                            wp_nav_menu(array(
+                                'container' => '',
+                                'theme_location' => 'primary-logictech-menu',
+                                'items_class' => 'ssss',
+                                'menu_id'              => '',
+                                'menu_class' => 'navbar-nav me-auto mb-2 mb-md-0 justify-content-center', 
+                                'add_a_class' => 'nav-link',
+                            ));
+                        ?> 
+                    
                     <div>
                         <div class="d-flex align-items-center">
                             <a href="<?php echo get_search_link(); ?>" class="text-dark me-3">
@@ -242,11 +227,20 @@
                                     search
                                 </span>
                             </a>
-                            <a href="<?php echo wc_get_cart_url(); ?>" class="text-dark">
-                                <span class="material-symbols-rounded">
-                                    shopping_cart
-                                </span>
-                            </a>
+                            <?php 
+                            if (class_exists('WooCommerce')):
+                                $cart_count = WC()->cart->get_cart_contents_count();
+                                $cart_total = WC()->cart->get_cart_total();  ?>                                  
+                                <a href="<?=wc_get_cart_url()?>" class="text-dark">
+                                    <span class="material-symbols-rounded">
+                                        shopping_cart
+                                    </span>
+                                    <?php if($cart_count>0):?>
+                                        <span class="badge bg-dark text-white ms-1 rounded-pill"><?=esc_html($cart_count)?></span>
+                                    <?php endif ?>
+                                </a><?php 
+                            endif ?> 
+                            
                         </div>
                     </div>
                 </div>

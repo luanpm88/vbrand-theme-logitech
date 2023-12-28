@@ -4,9 +4,9 @@
  */
 
 // Kiểm tra xem đã import dữ liệu demo chưa
-$demo_logintect_imported = get_option('demo_logintect_imported');
+$demo_logintech_imported = get_option('demo_logintech_imported');
 
-if ($demo_logintect_imported !== '1') {
+if ($demo_logintech_imported !== '1') {
     /**
      *---------------- Tạo menu
      */
@@ -60,7 +60,7 @@ if ($demo_logintect_imported !== '1') {
     }  
 
     // Đánh dấu là đã import dữ liệu để không import lần nữa
-    update_option('demo_logintect_imported', '1');
+    update_option('demo_logintech_imported', '1');
 }
 
 // Hook để chạy hàm import khi theme được kích hoạt
