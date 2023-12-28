@@ -99,6 +99,11 @@ function solv_page($menu_id, $title_page ='', $page_arg =''){
         update_option('page_on_front', $page_id);
         update_option('show_on_front', 'page');
     }
+    
+    if( $page->post_title == 'Giới thiệu' ){
+        $aboutus_template = 'page-aboutus.php';
+        update_post_meta($page_id, '_wp_page_template', $aboutus_template);
+    }
 
     if( $page->post_title == 'Cửa hàng' ){
         // Đặt trang vừa cập nhật làm trang shop của WooCommerce
