@@ -12,7 +12,8 @@ function register_logictech_menu() {
     register_nav_menu('primary-logictech-menu', __('Primary Logintech Menu'));
 }
 add_action('after_setup_theme', 'register_logictech_menu');
- 
+
+
 function vbrand_widget_filter() {
 	register_sidebar(array(
     	'name' => 'filter Widget Area',

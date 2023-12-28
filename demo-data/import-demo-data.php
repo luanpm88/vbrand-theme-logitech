@@ -112,13 +112,14 @@ function page_to_menu($menu_id, $page_id='', $page_title=''){
     $menu_item_data = array(
         'menu-item-object-id' => $page_id,
         'menu-item-object'    => 'page',
-        'menu-item-type'      => 'post_type',
+        'menu-item-type'      => 'post_type',  
         'menu-item-title'     => $page_title,
         'menu-item-status'    => 'publish',
     );
     // Thêm mục menu vào menu
     wp_update_nav_menu_item($menu_id, 0, $menu_item_data);
 }
+
 
 
 ?>
