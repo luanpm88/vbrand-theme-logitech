@@ -250,4 +250,4 @@ return [
         'label' => 'About Us Content',
         'default' => 'Nội dung mặc định của trang about us ',
     ],
-];
+];?> 

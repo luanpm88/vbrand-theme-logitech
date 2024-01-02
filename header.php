@@ -207,19 +207,17 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse py-3" id="navbarCollapse">
-                     
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0 justify-content-center">
                      
                         <?php 
                             wp_nav_menu(array(
                                 'container' => '',
-                                'theme_location' => 'primary-logictech-menu',
-                                'items_class' => 'ssss',
-                                'menu_id'              => '',
-                                'menu_class' => 'navbar-nav me-auto mb-2 mb-md-0 justify-content-center', 
+                                'theme_location' => 'primary-menu',
+                                'menu_class' => 'custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0', 
                                 'add_a_class' => 'nav-link',
                             ));
                         ?> 
-                    
+                    </ul>
                     <div>
                         <div class="d-flex align-items-center">
                             <a href="<?php echo get_search_link(); ?>" class="text-dark me-3">

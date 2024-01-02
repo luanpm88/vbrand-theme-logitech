@@ -9,7 +9,7 @@ add_action( 'after_setup_theme', 'vbrand_theme_logitech_woocommerce_support' );
 *   Định nghĩa menu cho themes
 */
 function register_logictech_menu() {
-    register_nav_menu('primary-logictech-menu', __('Primary Logintech Menu'));
+    register_nav_menu('primary-menu', __('Primary Menu'));
 }
 add_action('after_setup_theme', 'register_logictech_menu');
 
@@ -34,7 +34,47 @@ if ($demo_logintech_imported !== '1') {
     update_option('demo_logintech_imported', '1');
 }
 
+$vbrand_logitech_menu_setup = get_option('vbrand_logitech_menu_setup'); 
+if (!$vbrand_logitech_menu_setup){  
+    $menu_exists = wp_get_nav_menu_object('Primary Logintech Menu');  
+    $menu_id = ''; 
+    if (!$menu_exists) {
+       
+        // Nếu menu chưa tồn tại, hãy tạo nó
+        $menu_id = wp_create_nav_menu('Primary Logintech Menu');
+    
+        // Đăng ký menu với theme
+        $locations = get_theme_mod('nav_menu_locations');
+        $locations['primary-menu'] = $menu_id;
+        set_theme_mod('nav_menu_locations', $locations); 
+    }else {
+        // Nếu menu đã tồn tại, lấy ID của nó
+        $menu_id = $menu_exists->term_id;
+        $locations = get_theme_mod('nav_menu_locations'); 
+        $locations['primary-menu'] = $menu_id;  
+        set_theme_mod('nav_menu_locations', $locations); 
 
+        $update = get_theme_mod('nav_menu_locations');  echo "<pre>"; print_r($update); echo "</pre>";
+         
+    }
+    update_option('vbrand_logitech_menu_setup', true); 
+    update_option('vbrand_one_menu_setup', false);
+}else{
+    /*
+    $menu_exists = wp_get_nav_menu_object('Primary Logintech Menu');   
+    if ($menu_exists) {
+        $menu_id = $menu_exists->term_id;
+        $locations = get_theme_mod('nav_menu_locations');
+        $locations['primary-menu'] = $menu_id;  
+        set_theme_mod('nav_menu_locations', $locations); 
+
+        update_option('vbrand_logitech_menu_setup', true); 
+        update_option('vbrand_one_menu_setup', false);
+    }
+    */
+}
+
+ 
 function add_additional_class_on_a($classes, $item, $args)
 {
     if (isset($args->add_a_class)) {

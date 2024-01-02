@@ -10,7 +10,7 @@ if ($demo_logintech_imported !== '1') {
     /**
      *---------------- Tạo menu
      */
-    $menu_exists = wp_get_nav_menu_object('primary-logictech-menu');
+    $menu_exists = wp_get_nav_menu_object('Primary Logintech Menu');
     $menu_id = '';
     if (!$menu_exists) {
         // Nếu menu chưa tồn tại, hãy tạo nó
@@ -24,6 +24,9 @@ if ($demo_logintech_imported !== '1') {
     }else {
         // Nếu menu đã tồn tại, lấy ID của nó
         $menu_id = $menu_exists->term_id;
+        $locations = get_theme_mod('nav_menu_locations');
+        $locations['primary-menu'] = $menu_id;  
+        set_theme_mod('nav_menu_locations', $locations);
     }
 
     /**
@@ -60,7 +63,9 @@ if ($demo_logintech_imported !== '1') {
     }  
 
     // Đánh dấu là đã import dữ liệu để không import lần nữa
-    update_option('demo_logintech_imported', '1');
+    update_option('demo_logintech_imported', '1'); 
+    update_option('vbrand_logitech_menu_setup', true );
+    update_option('vbrand_one_menu_setup', false);
 }
 
 // Hook để chạy hàm import khi theme được kích hoạt
