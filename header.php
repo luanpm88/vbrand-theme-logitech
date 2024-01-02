@@ -211,7 +211,21 @@
                         <?php foreach ($themeData->get('menus') as $key => $menu) {
                         ?>
                             <li class="nav-item mx-md-3">
-                                <a class="nav-link active" aria-current="page" href="">
+                                <a class="nav-link active" aria-current="page" href="<?php
+
+                                    if ($menu['type'] == 'Logitech - Homepage')
+                                    {
+                                        // lấy page có template là 'Logitech - Homepage' đầu tiên, nếu chưa có thì tạo
+                                    }else if ($menu['type'] == 'Logitech - About')
+                                    {
+                                        // lấy page có template là 'Logitech - Homepage' đầu tiên, nếu chưa có thì tạo
+                                    } else if ($menu['type'] == 'Logitech - Shop') {
+                                        // kiểm tra cài woo chưa
+                                        // wpp_woo_get_shop_link
+                                        // nếu rỗng, thì báo lỗi là chưa cầu hình shop page, chưa chọn, chưa cài woo
+                                    }
+                                
+                                ?>">
                                     <?= $menu['label'] ?>
                                 </a>
                             </li>

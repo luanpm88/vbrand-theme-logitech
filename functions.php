@@ -52,3 +52,8 @@ function vbrand_theme_logitech_get_categories() {
       // 	}       
       // }
 }
+
+// function getPageByTempalte()
+// {
+
+// }

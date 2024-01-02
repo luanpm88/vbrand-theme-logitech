@@ -27,22 +27,22 @@ return [
             [
                 'show' => true,
                 'label' => 'Trang chủ',
-                'type' => 'homepage',
+                'type' => 'Logitech - Homepage',
             ],
             [
                 'show' => true,
                 'label' => 'About Us',
-                'type' => 'aboutus',
+                'type' => 'Logitech - About Us',
             ],
             [
                 'show' => true,
                 'label' => 'Gian Hàng',
-                'type' => 'shop',
+                'type' => 'Logitech - Shop',
             ],
             [
                 'show' => true,
                 'label' => 'Contact Us',
-                'type' => 'contactus',
+                'type' => 'Logitech - Contact US',
             ],
         ],
         'schema' => [
@@ -65,10 +65,10 @@ return [
                 'label' => 'Chọn template',
                 'default' => '',
                 'options' => [
-                    ['value' => 'homepage', 'text' => 'Trang chủ'],
-                    ['value' => 'aboutus', 'text' => 'Giới thiệu'],
-                    ['value' => 'shop', 'text' => 'Gian hàng'],
-                    ['value' => 'contactus', 'text' => 'Liên hệ'],
+                    ['value' => 'Logitech - Homepage', 'text' => 'Trang chủ'],
+                    ['value' => 'Logitech - About Us', 'text' => 'Giới thiệu'],
+                    ['value' => 'Logitech - Shop', 'text' => 'Gian hàng'],
+                    ['value' => 'Logitech - Contact US', 'text' => 'Liên hệ'],
                 ],
             ],
         ],
