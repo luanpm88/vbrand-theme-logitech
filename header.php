@@ -238,11 +238,20 @@
                                     search
                                 </span>
                             </a>
-                            <a href="<?php echo wc_get_cart_url(); ?>" class="text-dark">
-                                <span class="material-symbols-rounded">
-                                    shopping_cart
-                                </span>
-                            </a>
+                            <?php 
+                            if (class_exists('WooCommerce')):
+                                $cart_count = WC()->cart->get_cart_contents_count();
+                                $cart_total = WC()->cart->get_cart_total();  ?>                                  
+                                <a href="<?=wc_get_cart_url()?>" class="text-dark">
+                                    <span class="material-symbols-rounded">
+                                        shopping_cart
+                                    </span>
+                                    <?php if($cart_count>0):?>
+                                        <span class="badge bg-dark text-white ms-1 rounded-pill"><?=esc_html($cart_count)?></span>
+                                    <?php endif ?>
+                                </a><?php 
+                            endif ?> 
+                            
                         </div>
                     </div>
                 </div>

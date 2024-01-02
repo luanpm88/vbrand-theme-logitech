@@ -1,3 +1,7 @@
+            <?php
+                $themeData = vbrand_load_theme_data();
+            ?>
+            
             <!-- FOOTER -->
             <footer class="container mt-5">
                 <p class="float-end"><a href="#"><?php echo $themeData->get('back_to_top_text'); ?></a></p>
