@@ -17,6 +17,63 @@ return [
         'default' => 'https://upload.wikimedia.org/wikipedia/commons/1/17/Logitech_logo.svg',
     ],
 
+    // Menus
+    [
+        'type' => 'list',
+        'name' => 'menus',
+        'label' => 'Menus',
+        'max' => 10,
+        'default' => [
+            [
+                'show' => true,
+                'label' => 'Trang chủ',
+                'type' => 'homepage',
+            ],
+            [
+                'show' => true,
+                'label' => 'About Us',
+                'type' => 'aboutus',
+            ],
+            [
+                'show' => true,
+                'label' => 'Gian Hàng',
+                'type' => 'shop',
+            ],
+            [
+                'show' => true,
+                'label' => 'Contact Us',
+                'type' => 'contactus',
+            ],
+        ],
+        'schema' => [
+            // show
+            [
+                'type' => 'boolean',
+                'name' => 'show',
+                'label' => 'Hiển thị',
+                'default' => true,
+            ],
+            [
+                'type' => 'text',
+                'name' => 'label',
+                'label' => 'Tên menu',
+                'default' => '',
+            ],
+            [
+                'type' => 'select',
+                'name' => 'type',
+                'label' => 'Chọn template',
+                'default' => '',
+                'options' => [
+                    ['value' => 'homepage', 'text' => 'Trang chủ'],
+                    ['value' => 'aboutus', 'text' => 'Giới thiệu'],
+                    ['value' => 'shop', 'text' => 'Gian hàng'],
+                    ['value' => 'contactus', 'text' => 'Liên hệ'],
+                ],
+            ],
+        ],
+    ],
+
     // SLIDER BLOCK
     // show
     [

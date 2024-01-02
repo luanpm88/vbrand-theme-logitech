@@ -208,32 +208,14 @@
                 </button>
                 <div class="collapse navbar-collapse py-3" id="navbarCollapse">
                     <ul class="navbar-nav me-auto mb-2 mb-md-0 justify-content-center" style="width:100%">
-                        <li class="nav-item mx-md-3">
-                            <a class="nav-link active" aria-current="page" href="<?= get_home_url() ?>">Trang chủ</a>
-                        </li>
-                        <li class="nav-item mx-md-3">
-                            <a class="nav-link active" aria-current="page" href="#">Giới thiệu</a>
-                        </li>
-                        <li class="nav-item mx-md-3 dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Cửa hàng
-                            </a>
-                            <ul class="dropdown-menu">
-                                <?php foreach (vbrand_theme_logitech_get_categories() as $category) { ?>
-                                    <li>
-                                        <a class="dropdown-item" href="<?php echo get_term_link( $category->cat_ID, 'product_cat' ); ?>">
-                                            <?php echo $category->name; ?>
-                                        </a>
-                                    </li>
-                                <?php } ?>
-                            </ul>
-                        </li>
-                        <li class="nav-item mx-md-3">
-                            <a class="nav-link active" aria-current="page" href="#">Blog</a>
-                        </li>
-						<li class="nav-item mx-md-3">
-                            <a class="nav-link active" aria-current="page" href="#">Liên hệ</a>
-                        </li>
+                        <?php foreach ($themeData->get('menus') as $key => $menu) {
+                        ?>
+                            <li class="nav-item mx-md-3">
+                                <a class="nav-link active" aria-current="page" href="">
+                                    <?= $menu['label'] ?>
+                                </a>
+                            </li>
+                        <?php } ?>
                     </ul>
                     <div>
                         <div class="d-flex align-items-center">
