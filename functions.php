@@ -169,4 +169,14 @@ function vbrand_logitech_getPageByTemplate($template)
 {
     // Tìm page nào có template là $template. Ví dụ: Logitech - About Us, Logitech - News,...
     // Trả về page đó. Nếu không có trả về null|false
+    $pages = get_pages(array(
+        'meta_key' => '_wp_page_template',
+        'meta_value' => $template,
+    ));
+    
+    if (count($pages)) {
+        return $pages[0];
+    }
+
+    return null;
 }
