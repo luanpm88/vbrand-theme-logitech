@@ -211,7 +211,7 @@
                         <?php foreach ($themeData->get('menus') as $key => $menu) {
                         ?>
                             <li class="nav-item mx-md-3">
-                                <a class="nav-link active" aria-current="page" href="<?php
+                                <a class="nav-link" aria-current="page" href="<?php
 
                                     if ($menu['type'] == 'Logitech - Homepage')
                                     {

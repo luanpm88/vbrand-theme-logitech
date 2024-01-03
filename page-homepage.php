@@ -1,5 +1,5 @@
 
-<?php /* Template Name: vBrand Logitech Homepage */ ?>
+<?php /* Template Name: Logitech - Homepage */ ?>
 
 <?php include 'header.php'; ?>
         

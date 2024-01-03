@@ -135,11 +135,35 @@ function vbrand_theme_logitech_get_categories() {
       // }
 }
 
-function vbrand_logitech_createPageWithTemplate($template)
-{
-    // Tạo mới 1 page và gắn template vào page đó. Ví dụ: Logitech - About Us, Logitech - News,...
-    // Trả về page tương ứng
+function vbrand_logitech_createPageWithTemplate($template, $title)
+{ 
+    //--- check page exxists
+    $args = array(
+        'post_type' => 'page',
+        'post_status' => 'publish',
+        'posts_per_page' => 1,
+        'title' => $title,
+    );
+    $page_query = new WP_Query($args);
+    $page ='';
+    $page_id = '';
+    if ($page_query->have_posts()) {
+        $page = $page_query->posts[0];
+        $page_title = $page->post_title;
+        $page_id = $page->ID; 
+    } else {
+        $page_id = wp_insert_post($page_arg);
+        $page = get_post($page_id); 
+    }
+    //--- set template cho trang
+    $homepage_template = 'page-homepage.php';
+    update_post_meta($page_id, '_wp_page_template', $homepage_template);
+
+    echo $template; 
+    //die();
 }
+
+vbrand_logitech_createPageWithTemplate('page-homepage.php', 'Trang chủ');
 
 function vbrand_logitech_getPageByTemplate($template)
 {

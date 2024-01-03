@@ -27,7 +27,7 @@ return [
             [
                 'show' => true,
                 'label' => 'Trang chủ',
-                'type' => 'Logitech - Homepage',
+                'type' => 'page-homepage.php',
             ],
             [
                 'show' => true,
@@ -70,7 +70,7 @@ return [
                 'label' => 'Chọn Loại Menu',
                 'default' => '',
                 'options' => [
-                    ['value' => 'Logitech - Homepage', 'text' => 'Trang chủ'],
+                    ['value' => 'page-homepage.php', 'text' => 'Trang chủ'],
                     ['value' => 'Logitech - About Us', 'text' => 'Giới thiệu'],
                     ['value' => 'Logitech - Shop', 'text' => 'Gian hàng'],
                     ['value' => 'Logitech - News', 'text' => 'Tin tức'],
