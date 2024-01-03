@@ -142,34 +142,25 @@ function vbrand_logitech_createPageWithTemplate($template, $title)
         'post_type' => 'page',
         'post_status' => 'publish',
         'posts_per_page' => 1,
-        'title' => $title,
+        'post_title' => $title,
     );
-    $page_query = new WP_Query($args);
-    $page ='';
-    $page_id = '';
-    if ($page_query->have_posts()) {
-        $page = $page_query->posts[0];
-        $page_title = $page->post_title;
-        $page_id = $page->ID; 
-    } else {
-        $page_id = wp_insert_post($page_arg);
-        $page = get_post($page_id); 
-    }
-    //--- set template cho trang
-    $homepage_template = 'page-homepage.php';
-    update_post_meta($page_id, '_wp_page_template', $homepage_template);
+    
+    // tao page
+    $page_id = wp_insert_post($args);
+    $page = get_post($page_id); 
+    update_post_meta($page_id, '_wp_page_template', $template);
 
-    echo $template; 
-    //die();
+    return $page;
 }
-
-vbrand_logitech_createPageWithTemplate('page-homepage.php', 'Trang chủ');
 
 function vbrand_logitech_getPageByTemplate($template)
 {
     // Tìm page nào có template là $template. Ví dụ: Logitech - About Us, Logitech - News,...
     // Trả về page đó. Nếu không có trả về null|false
+
     $pages = get_pages(array(
+        'post_type' => 'page',
+        'post_status' => 'publish',
         'meta_key' => '_wp_page_template',
         'meta_value' => $template,
     ));
@@ -180,3 +171,59 @@ function vbrand_logitech_getPageByTemplate($template)
 
     return null;
 }
+function vbrand_logitech_setfrontPageByTemplate($template)
+{
+    $page = vbrand_logitech_getOrCreatePageByTemplate($template);
+
+   // var_dump( $page);die();
+    update_option('page_on_front', $page->ID);
+    update_option('show_on_front', 'page');
+}
+function vbrand_logitech_getOrCreatePageByTemplate($template, $title='unknown')
+{
+    $page = vbrand_logitech_getPageByTemplate($template);
+
+    // neu co page roi thi tra ve page do
+    if (!$page) {
+        $page = vbrand_logitech_createPageWithTemplate($template, $title);
+    }
+
+    return $page;
+}
+
+function vbrand_logitech_activate()
+{
+    $themeData = vbrand_load_theme_data();
+    $menus = $themeData->get('menus');
+
+    // tao pages tu menu
+    foreach($menus as $menu){
+        //var_dump($menu['type']); //die();
+        vbrand_logitech_getOrCreatePageByTemplate($menu['type'], $menu['title']); 
+    }
+
+    //--- set frontpage 
+    vbrand_logitech_setfrontPageByTemplate('page-homepage.php');
+}
+//
+//vbrand_logitech_activate();
+
+// //vbrand_logitech_setfrontPageByTemplate('page-homepage.php');
+
+// //---  set active theme
+
+// $vbrnd_logintech_active = get_option('vbrnd_logintech_active');
+
+// //if ($vbrnd_logintech_active !== '1') {
+//     // load theme data
+//     $themeData = vbrand_load_theme_data();
+//     $menus = $themeData->get('menus');
+//     var_dump($menus);
+//     die();
+//      //--kiểm tra page theo cấu hình của schema.php 
+
+//     //--- set frontpage 
+//     vbrand_logitech_setfrontPageByTemplate('page-homepage.php');
+    
+//     update_option('vbrnd_logintech_active', '1');
+// //}

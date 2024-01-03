@@ -213,18 +213,22 @@
                             <li class="nav-item mx-md-3">
                                 <a class="nav-link" aria-current="page" href="<?php
 
-                                    if ($menu['type'] == 'Logitech - Homepage')
+                                    if ($menu['type'] == 'page-homepage.php')
                                     {
                                         // lấy page có template là 'Logitech - Homepage' đầu tiên, nếu chưa có thì tạo
-                                    }else if ($menu['type'] == 'Logitech - About')
+                                        $page = vbrand_logitech_getOrCreatePageByTemplate('page-homepage.php');
+                                        echo get_permalink( $page->ID );
+
+                                    }else if ($menu['type'] == 'page-aboutus.php')
                                     {
                                         // lấy page có template là 'Logitech - Homepage' đầu tiên, nếu chưa có thì tạo
+                                        $page = vbrand_logitech_getOrCreatePageByTemplate('page-aboutus.php');
+                                        echo get_permalink( $page->ID );
                                     } else if ($menu['type'] == 'Logitech - Shop') {
                                         // kiểm tra cài woo chưa
                                         // wpp_woo_get_shop_link
                                         // nếu rỗng, thì báo lỗi là chưa cầu hình shop page, chưa chọn, chưa cài woo
                                     }
-                                
                                 ?>">
                                     <?= $menu['label'] ?>
                                 </a>

@@ -26,29 +26,29 @@ return [
         'default' => [
             [
                 'show' => true,
-                'label' => 'Trang chủ',
+                'title' => 'Trang chủ',
                 'type' => 'page-homepage.php',
             ],
             [
                 'show' => true,
-                'label' => 'About Us',
-                'type' => 'Logitech - About Us',
+                'title' => 'About Us',
+                'type' => 'page-aboutus.php',
             ],
-            [
-                'show' => true,
-                'label' => 'Gian Hàng',
-                'type' => 'Logitech - Shop',
-            ],
-            [
-                'show' => true,
-                'label' => 'Tin tức',
-                'type' => 'Logitech - News',
-            ],
-            [
-                'show' => true,
-                'label' => 'Contact Us',
-                'type' => 'Logitech - Contact US',
-            ],
+            // [
+            //     'show' => true,
+            //     'title' => 'Gian Hàng',
+            //     'type' => 'Logitech - Shop',
+            // ],
+            // [
+            //     'show' => true,
+            //     'title' => 'Tin tức',
+            //     'type' => 'Logitech - News',
+            // ],
+            // [
+            //     'show' => true,
+            //     'title' => 'Contact Us',
+            //     'type' => 'Logitech - Contact US',
+            // ],
         ],
         'schema' => [
             // show
@@ -60,7 +60,7 @@ return [
             ],
             [
                 'type' => 'text',
-                'name' => 'label',
+                'name' => 'title',
                 'label' => 'Tên menu',
                 'default' => '',
             ],
