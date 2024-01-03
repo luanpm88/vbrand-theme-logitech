@@ -216,13 +216,13 @@
                                     if ($menu['type'] == 'page-homepage.php')
                                     {
                                         // lấy page có template là 'Logitech - Homepage' đầu tiên, nếu chưa có thì tạo
-                                        $page = vbrand_logitech_getOrCreatePageByTemplate('page-homepage.php');
+                                        $page = vbrand_getOrCreatePageByTemplate('page-homepage.php');
                                         echo get_permalink( $page->ID );
 
                                     }else if ($menu['type'] == 'page-aboutus.php')
                                     {
                                         // lấy page có template là 'Logitech - Homepage' đầu tiên, nếu chưa có thì tạo
-                                        $page = vbrand_logitech_getOrCreatePageByTemplate('page-aboutus.php');
+                                        $page = vbrand_getOrCreatePageByTemplate('page-aboutus.php');
                                         echo get_permalink( $page->ID );
 
                                     } else if ($menu['type'] == 'shop') {   
@@ -237,7 +237,7 @@
                                         echo get_permalink( $page->ID );
                                     }
                                 ?>">
-                                    <?=$menu['title'] ?>
+                                    <?= $menu['title'] ?>
                                 </a>
                             </li>
                         <?php } ?>

@@ -73,10 +73,10 @@ return [
                 'default' => '',
                 'options' => [
                     ['value' => 'page-homepage.php', 'text' => 'Trang chủ'],
-                    ['value' => 'Logitech - About Us', 'text' => 'Giới thiệu'],
-                    ['value' => 'Logitech - Shop', 'text' => 'Gian hàng'],
-                    ['value' => 'Logitech - News', 'text' => 'Tin tức'],
-                    ['value' => 'Logitech - Contact US', 'text' => 'Liên hệ'],
+                    ['value' => 'page-aboutus.php', 'text' => 'Giới thiệu'],
+                    // ['value' => 'Logitech - Shop', 'text' => 'Gian hàng'],
+                    // ['value' => 'Logitech - News', 'text' => 'Tin tức'],
+                    // ['value' => 'Logitech - Contact US', 'text' => 'Liên hệ'],
                 ],
             ],
         
