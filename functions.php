@@ -135,7 +135,14 @@ function vbrand_theme_logitech_get_categories() {
       // }
 }
 
-// function getPageByTempalte()
-// {
+function vbrand_logitech_createPageWithTemplate($template)
+{
+    // Tạo mới 1 page và gắn template vào page đó. Ví dụ: Logitech - About Us, Logitech - News,...
+    // Trả về page tương ứng
+}
 
-// }
+function vbrand_logitech_getPageByTemplate($template)
+{
+    // Tìm page nào có template là $template. Ví dụ: Logitech - About Us, Logitech - News,...
+    // Trả về page đó. Nếu không có trả về null|false
+}

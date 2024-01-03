@@ -67,7 +67,7 @@ return [
             [
                 'type' => 'select',
                 'name' => 'type',
-                'label' => 'Chọn template',
+                'label' => 'Chọn Loại Menu',
                 'default' => '',
                 'options' => [
                     ['value' => 'Logitech - Homepage', 'text' => 'Trang chủ'],
