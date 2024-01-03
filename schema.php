@@ -34,21 +34,23 @@ return [
                 'title' => 'About Us',
                 'type' => 'page-aboutus.php',
             ],
-            // [
-            //     'show' => true,
-            //     'title' => 'Gian Hàng',
-            //     'type' => 'Logitech - Shop',
-            // ],
-            // [
-            //     'show' => true,
-            //     'title' => 'Tin tức',
-            //     'type' => 'Logitech - News',
-            // ],
-            // [
-            //     'show' => true,
-            //     'title' => 'Contact Us',
-            //     'type' => 'Logitech - Contact US',
-            // ],
+
+            [
+                 'show' => true,
+                 'title' => 'Gian Hàng',
+                 'type' => 'shop',
+            ],
+            [
+                 'show' => true,
+                 'title' => 'Tin tức',
+                 'type' => 'page-news.php',
+            ],
+            [
+                 'show' => true,
+                 'title' => 'Contact Us',
+                 'type' => 'page-contact.php',
+            ],
+
         ],
         'schema' => [
             // show
