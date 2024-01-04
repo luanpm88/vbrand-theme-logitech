@@ -74,7 +74,7 @@ return [
                 'options' => [
                     ['value' => 'page-homepage.php', 'text' => 'Trang chủ'],
                     ['value' => 'page-aboutus.php', 'text' => 'Giới thiệu'],
-                    ['value' => '', 'text' => 'Gian hàng'],
+                    ['value' => 'shop', 'text' => 'Gian hàng'],
                     ['value' => 'page-news.php', 'text' => 'Tin tức'],
                     ['value' => 'page-contact', 'text' => 'Liên hệ'],
                 ],
