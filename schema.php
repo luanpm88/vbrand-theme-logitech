@@ -31,7 +31,7 @@ return [
             ],
             [
                 'show' => true,
-                'title' => 'About Us',
+                'title' => 'Giới thiệu',
                 'type' => 'page-aboutus.php',
             ],
 
@@ -47,7 +47,7 @@ return [
             ],
             [
                  'show' => true,
-                 'title' => 'Contact Us',
+                 'title' => 'Liên hệ',
                  'type' => 'page-contact.php',
             ],
 
@@ -74,9 +74,9 @@ return [
                 'options' => [
                     ['value' => 'page-homepage.php', 'text' => 'Trang chủ'],
                     ['value' => 'page-aboutus.php', 'text' => 'Giới thiệu'],
-                    // ['value' => 'Logitech - Shop', 'text' => 'Gian hàng'],
-                    // ['value' => 'Logitech - News', 'text' => 'Tin tức'],
-                    // ['value' => 'Logitech - Contact US', 'text' => 'Liên hệ'],
+                    ['value' => '', 'text' => 'Gian hàng'],
+                    ['value' => 'page-news.php', 'text' => 'Tin tức'],
+                    ['value' => 'page-contact', 'text' => 'Liên hệ'],
                 ],
             ],
         

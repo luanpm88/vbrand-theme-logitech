@@ -210,33 +210,42 @@
                     <ul class="navbar-nav me-auto mb-2 mb-md-0 justify-content-center" style="width:100%">
                         <?php foreach ($themeData->get('menus') as $key => $menu) {
                         ?>
-                            <li class="nav-item mx-md-3">
-                                <a class="nav-link" aria-current="page" href="<?php
+                            <?php
 
-                                    if ($menu['type'] == 'page-homepage.php')
-                                    {
-                                        // lấy page có template là 'Logitech - Homepage' đầu tiên, nếu chưa có thì tạo
-                                        $page = vbrand_getOrCreatePageByTemplate('page-homepage.php');
-                                        echo get_permalink( $page->ID );
+                                if ($menu['type'] == 'page-homepage.php')
+                                {
+                                    // lấy page có template là 'Logitech - Homepage' đầu tiên, nếu chưa có thì tạo
+                                    $page = vbrand_getOrCreatePageByTemplate('page-homepage.php');
+                                    $menuLink = get_permalink( $page->ID );
 
-                                    }else if ($menu['type'] == 'page-aboutus.php')
-                                    {
-                                        // lấy page có template là 'Logitech - Homepage' đầu tiên, nếu chưa có thì tạo
-                                        $page = vbrand_getOrCreatePageByTemplate('page-aboutus.php');
-                                        echo get_permalink( $page->ID );
+                                }else if ($menu['type'] == 'page-aboutus.php')
+                                {
+                                    // lấy page có template là 'Logitech - Homepage' đầu tiên, nếu chưa có thì tạo
+                                    $page = vbrand_getOrCreatePageByTemplate('page-aboutus.php');
+                                    $menuLink = get_permalink( $page->ID );
 
-                                    } else if ($menu['type'] == 'shop') {   
-                                        
-                                    } else if ($menu['type'] == 'page-news.php') {
-
-                                        $page = vbrand_logitech_getOrCreatePageByTemplate('page-news.php');
-                                        echo get_permalink( $page->ID );
-
-                                    } else if ($menu['type'] == 'page-contact.php') {
-                                        $page = vbrand_logitech_getOrCreatePageByTemplate('page-contact.php');
-                                        echo get_permalink( $page->ID );
+                                } else if ($menu['type'] == 'shop') {
+                                    if (class_exists('WooCommerce')) {
+                                        if(get_option( 'woocommerce_shop_page_id' )){
+                                            $menuLink = get_permalink( get_option( 'woocommerce_shop_page_id' ) ); 
+                                        }else{
+                                            echo "không tim thấy trang shop, vui lòing kiểm tra cấu hình của woocomerce";
+                                        }
+                                    } else {
+                                        echo "chưa cài WooCommerce";
                                     }
-                                ?>">
+                                } else if ($menu['type'] == 'page-news.php') {
+
+                                    $page = vbrand_getOrCreatePageByTemplate('page-news.php');
+                                    $menuLink = get_permalink( $page->ID );
+
+                                } else if ($menu['type'] == 'page-contact.php') {
+                                    $page = vbrand_getOrCreatePageByTemplate('page-contact.php');
+                                    $menuLink = get_permalink( $page->ID );
+                                }
+                            ?>
+                            <li class="nav-item mx-md-3">
+                                <a class="nav-link" aria-current="page" href="<?= $menuLink ?>">
                                     <?= $menu['title'] ?>
                                 </a>
                             </li>
