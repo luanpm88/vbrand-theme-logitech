@@ -74,7 +74,7 @@ return [
                 'options' => [
                     ['value' => 'page-homepage.php', 'text' => 'Trang chủ'],
                     ['value' => 'page-aboutus.php', 'text' => 'Giới thiệu'],
-                    ['value' => '', 'text' => 'Gian hàng'],
+                    ['value' => 'shop', 'text' => 'Gian hàng'],
                     ['value' => 'page-news.php', 'text' => 'Tin tức'],
                     ['value' => 'page-contact', 'text' => 'Liên hệ'],
                 ],
@@ -282,7 +282,24 @@ return [
             ],
         ],
     ],
-
+    // ARTICLES
+    [
+        'type' => 'boolean',
+        'name' => 'articles_module_show',
+        'label' => 'Show Articles Module',
+        'default' => true,
+    ],
+    [
+        'type' => 'select',
+        'name' => 'articles_module_number',
+        'label' => 'Articles Module: Number of Articles',
+        'default' => 3,
+        'options' => [
+            ['value' => 2, 'text' => 2],
+            ['value' => 3, 'text' => 3],
+            ['value' => 4, 'text' => 4],
+        ],
+    ],
     // FOOTER
     [
         'type' => 'textarea',

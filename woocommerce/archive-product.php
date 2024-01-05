@@ -131,7 +131,7 @@ if ( woocommerce_product_loop() ) {?>
 
 					<?php
 						// Display WooCommerce price filter shortcode
-						echo do_shortcode('[woocommerce_price_filter]');
+						//do_shortcode('[woocommerce_price_filter]');
 					?>
 
 					

@@ -82,3 +82,100 @@ if (!$vbrand_logitech_menu_setup){
     update_option('vbrand_logitech_menu_setup', true); 
     update_option('vbrand_one_menu_setup', false);
 }
+
+
+
+/**
+ * Breadcrumb
+ */
+ 
+ function theme_breadcrumbs() {
+    // Define the home icon and text
+    $home_icon = '<i class="fa fa-home"></i>';
+    $home_text = 'Home';
+
+    // Start the breadcrumb output
+    echo '<div class="breadcrumbs">';
+    echo '<a href="' . home_url() . '">' . $home_icon . ' ' . $home_text . '</a>';
+
+    // Check if it's a single post (single.php) or a page
+    if (is_single() || is_page()) {
+        $post_type = get_post_type();
+        $post_type_object = get_post_type_object($post_type);
+
+        // Display category and parent pages for posts
+        if ($post_type === 'post') {
+            $categories = get_the_category();
+            if (!empty($categories)) {
+                $category = $categories[0];
+                echo '<span class="sep"> &raquo; </span>';
+                echo '<a href="' . get_category_link($category->term_id) . '">' . $category->name . '</a>';
+            }
+        }
+
+        // Display parent pages for pages
+        elseif ($post_type === 'page') {
+            $ancestors = get_post_ancestors(get_the_ID());
+            if (!empty($ancestors)) {
+                $ancestors = array_reverse($ancestors);
+                foreach ($ancestors as $ancestor) {
+                    echo '<span class="sep"> &raquo; </span>';
+                    echo '<a href="' . get_permalink($ancestor) . '">' . get_the_title($ancestor) . '</a>';
+                }
+            }
+        }
+
+        // Display the current post or page title
+        echo '<span class="sep"> &raquo; </span>';
+        echo '<span class="current">' . get_the_title() . '</span>';
+    }
+
+    // Display the category for category archives
+    elseif (is_category()) {
+        $category = get_queried_object();
+        echo '<span class="sep"> &raquo; </span>';
+        echo '<span class="current">' . $category->name . '</span>';
+    }
+
+    // Display the tag for tag archives
+    elseif (is_tag()) {
+        $tag = get_queried_object();
+        echo '<span class="sep"> &raquo; </span>';
+        echo '<span class="current">' . $tag->name . '</span>';
+    }
+
+    // Display the search term for search results
+    elseif (is_search()) {
+        echo '<span class="sep"> &raquo; </span>';
+        echo '<span class="current">Search results for "' . get_search_query() . '"</span>';
+    }
+
+    // Display the date for date archives
+    elseif (is_date()) {
+        echo '<span class="sep"> &raquo; </span>';
+        echo '<span class="current">' . get_the_date() . '</span>';
+    }
+
+    // Display the author for author archives
+    elseif (is_author()) {
+        $author = get_queried_object();
+        echo '<span class="sep"> &raquo; </span>';
+        echo '<span class="current">Author: ' . $author->display_name . '</span>';
+    }
+
+    // Display the custom post type for custom post type archives
+    elseif (is_post_type_archive()) {
+        $post_type = get_queried_object();
+        echo '<span class="sep"> &raquo; </span>';
+        echo '<span class="current">' . $post_type->labels->name . '</span>';
+    }
+
+    // Display the 404 error page
+    elseif (is_404()) {
+        echo '<span class="sep"> &raquo; </span>';
+        echo '<span class="current">404 Not Found</span>';
+    }
+
+    // End the breadcrumb output
+    echo '</div>';
+}
