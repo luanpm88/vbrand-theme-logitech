@@ -58,6 +58,7 @@ a:hover {
     height: 40px;
     background-color: #fff;
     box-shadow: none;
+    padding: 0 10px!important;
 }
 #order_review_heading {
   margin-top: 20px;
