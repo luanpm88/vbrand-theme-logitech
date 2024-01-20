@@ -267,7 +267,7 @@
                                         shopping_cart
                                     </span>
                                     <?php if($cart_count>0):?>
-                                        <span class="badge bg-dark text-white ms-1 rounded-pill"><?=esc_html($cart_count)?></span>
+                                        <span class="badge bg-dark text-white rounded-pill position-absolute" style="margin-left:-10px;margin-top:-12px;"><?=esc_html($cart_count)?></span>
                                     <?php endif ?>
                                 </a><?php 
                             endif ?> 
