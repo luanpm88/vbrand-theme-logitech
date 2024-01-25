@@ -1,6 +1,16 @@
 /* GLOBAL STYLES
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
+:root [data-theme="theme-light"] {
+  --p-theme-bg: white;
+  --p-theme-fg: black;
+  --p-theme-bg-tone: #f4f4f4;
+  --p-theme-fg-tone: #2f3132;
+  --p-theme-bg-white-or-darkgray: white;
+  --p-theme-fg-white-or-darkgray: #2f3132;
+  --p-theme-bg-blue-on-dark: white;
+  --p-theme-fg-blue-on-dark: #2f3132;
+}
 
 body {
   padding-top: 3rem;
@@ -34,7 +44,7 @@ body {
 /* Center align the text within the three columns below the carousel */
 .marketing .col-lg-4 {
   margin-bottom: 1.5rem;
-  text-align: center;
+   
 }
 /* rtl:begin:ignore */
 .marketing .col-lg-4 p {
@@ -53,14 +63,15 @@ body {
 
 /* Thin out the marketing headings */
 /* rtl:begin:remove */
+
 .featurette-heading {
   letter-spacing: -.05rem;
 }
 
 /* rtl:end:remove */
-
-/* RESPONSIVE CSS
--------------------------------------------------- */
+/*----------------------------------------
+ RESPONSIVE CSS
+------------------------------------------ */
 
 @media (min-width: 40em) {
   /* Bump up size of carousel content */

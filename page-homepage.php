@@ -49,52 +49,51 @@
 <div class="container marketing">
     <?php if ($themeData->get('home_articles_block_show')) { ?>
         <!-- Three columns of text below the carousel -->
-        <div class="row">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="row"> 
+                <?php
+                    $numOfPosts = $themeData->get('home_articles_block_number');
+                    $sort = $themeData->get('home_articles_block_sort');
+                    $args = array( 'numberposts' => $numOfPosts );
+                    $args['post_status'] = 'publish';
+                    if ($sort == 'newest') {
+                        $args['order'] = 'DESC';
+                        $args['orderby'] = 'post_date';
+                    } else if ($sort == 'oldest') {
+                        $args['order'] = 'ASC';
+                        $args['orderby'] = 'post_date';
+                    } else {
+                        $args['order'] = 'DESC';
+                        $args['orderby'] = 'post_date';
+                    }  
+                    $postslist = get_posts( $args );
+                ?>
+                <?php foreach ($postslist as $post) {
+                    $content = $post->post_content;
+                    $content = strip_tags($content);
+                    $shortDescription = substr($content, 0, 100);
+                    $thumbnail_url = get_the_post_thumbnail_url($post->ID, 'medium');
+                ?>
+                    <div class="col-lg-<?php echo 12/$numOfPosts; ?>">
+                        <?php if ($thumbnail_url) { ?> 
+                            <img src="<?php echo $thumbnail_url; ?>"  alt="">
+                        <?php } else { ?>
+                            <img src="<?php echo get_template_directory_uri(); ?>/image/placeholder.svg" width="140" height="140" alt="">
+                        <?php } ?>
+                        <h3 class="fw-normal mt-3"><?php echo $post->post_title; ?></h3>
+                        <p><?php echo $shortDescription; ?></p>
+                        <p>
+                            <a class="link-more" href="<?php echo get_permalink($post->ID); ?>">
+                                <?php echo $themeData->get('home_articles_block_view_button_text'); ?> &raquo;
+                            </a>
+                        </p>
+                    </div>
+                    <!-- /.col-lg-4 -->
+                <?php } ?>
 
-            <?php
-                $numOfPosts = $themeData->get('home_articles_block_number');
-                $sort = $themeData->get('home_articles_block_sort');
-
-                $args = array( 'numberposts' => $numOfPosts );
-                $args['post_status'] = 'publish';
-
-                if ($sort == 'newest') {
-                    $args['order'] = 'DESC';
-                    $args['orderby'] = 'post_date';
-                } else if ($sort == 'oldest') {
-                    $args['order'] = 'ASC';
-                    $args['orderby'] = 'post_date';
-                } else {
-                    $args['order'] = 'DESC';
-                    $args['orderby'] = 'post_date';
-                }
-
-                
-                $postslist = get_posts( $args );
-            ?>
-            
-
-            <?php foreach ($postslist as $post) {
-                $content = $post->post_content;
-                $content = strip_tags($content);
-                $shortDescription = substr($content, 0, 100);
-                $thumbnail_url = get_the_post_thumbnail_url($post->ID, 'medium');
-            ?>
-                <div class="col-lg-<?php echo 12/$numOfPosts; ?>">
-                    <?php if ($thumbnail_url) { ?> 
-                        <img class="rounded-circle" src="<?php echo $thumbnail_url; ?>" width="140" height="140" alt="">
-                    <?php } else { ?>
-                        <img class="rounded-circle" src="<?php echo get_template_directory_uri(); ?>/image/placeholder.svg" width="140" height="140" alt="">
-                    <?php } ?>
-                    <h2 class="fw-normal mt-3"><?php echo $post->post_title; ?></h2>
-                    <p><?php echo $shortDescription; ?></p>
-                    <p>
-                        <a class="btn btn-secondary" href="<?php echo get_permalink($post->ID); ?>">
-                            <?php echo $themeData->get('home_articles_block_view_button_text'); ?> &raquo;
-                        </a>
-                    </p>
-                </div><!-- /.col-lg-4 -->
-            <?php } ?>
+                </div>
+            </div>
         </div><!-- /.row -->
 
         <hr class="featurette-divider">

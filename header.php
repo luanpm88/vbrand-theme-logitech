@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style.css" />
+    <link href="<?=get_template_directory_uri()?>/css/mystyle.css" rel="stylesheet">
 
     <style>
     .bd-placeholder-img {
@@ -35,7 +36,6 @@
         -moz-user-select: none;
         user-select: none;
     }
-
     .btn {
         border-radius: 0;
         padding: 12px 25px;
@@ -43,7 +43,6 @@
         text-transform: uppercase;
         font-weight: 600;
     }
-
     .btn-primary, .btn-secondary {
         background: rgb(47, 49, 50);
         border-color: rgb(47, 49, 50);
@@ -128,7 +127,7 @@
 	?>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> data-theme="theme-light">
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
         <symbol id="check2" viewBox="0 0 16 16">
             <path
