@@ -3,7 +3,9 @@
 
 <?php include 'header.php'; ?>
         
-<?php if ($themeData->get('show_home_slider')) { ?>
+<?php if ($themeData->get('show_home_slider')) { 
+    //print_r($themeData->get('home_sliders'));    
+?>
     <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <?php foreach ($themeData->get('home_sliders') as $key => $slider) {
