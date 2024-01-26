@@ -112,19 +112,19 @@ return [
             'max' => 10,
             'default' => [
                 [
-                    'image' => get_template_directory_uri() . '/image/ergo-series-hpb-desktop.webp',
+                    'image' => get_template_directory_uri() . '/image/future-positive-challenge-desktop.jpeg',
                     'title' => 'Example headline.',
                     'button_text' => 'Sign up today',
                     'description' => 'Some representative placeholder content for the first slide of thecarousel.',
                 ],
                 [
-                    'image' => get_template_directory_uri() . '/image/main-bannerr.png',
+                    'image' => get_template_directory_uri() . '/image/bg-design-desktop.jpeg',
                     'title' => 'Another example headline.',
                     'button_text' => 'Learn more',
                     'description' => 'Some representative placeholder content for the first slide of thecarousel.',
                 ],
                 [
-                    'image' => get_template_directory_uri() . '/image/ergo-series-hpb-desktop.webp',
+                    'image' => get_template_directory_uri() . '/image/climate-positive-desk.jpeg',
                     'title' => 'One more for good measure.',
                     'button_text' => 'Learn more',
                     'description' => 'Some representative placeholder content for the third slide of this carousel.',
@@ -135,7 +135,7 @@ return [
                     'type' => 'image',
                     'name' => 'image',
                     'label' => 'Slider Image',
-                    'default' => get_template_directory_uri() . '/image/ergo-series-hpb-desktop.webp',
+                    'default' => get_template_directory_uri() . '/image/bg-design-desktop.jpg',
                 ],
                 [
                     'type' => 'text',
@@ -269,14 +269,14 @@ return [
             'max' => 10,
             'default' => [
                 [
-                    'image' => get_template_directory_uri() . '/image/logitech-banner-2.png',
+                    'image' => get_template_directory_uri() . '/image/zone-wireless-2-hpb-feature-2.webp',
                     'title' => 'First featurette heading. <span
                         class="text-body-secondary">It’ll blow your mind.</span>',
                     'description' => 'Some great placeholder content for the first featurette here. Imagine some exciting
                         prose here.',
                 ],
                 [
-                    'image' => get_template_directory_uri() . '/image/logitech-workplace.jpg',
+                    'image' => get_template_directory_uri() . '/image//brio-100-hpb-feature.webp',
                     'title' => 'Oh yeah, it’s that good. <span
                         class="text-body-secondary">See for yourself.</span>',
                     'description' => 'Another featurette? Of course. More placeholder content here to give you an idea of
@@ -288,7 +288,7 @@ return [
                     'type' => 'image',
                     'name' => 'image',
                     'label' => 'Image',
-                    'default' => get_template_directory_uri() . '/image/Logitech-banner.png',
+                    'default' => get_template_directory_uri() . '/image/zone-wireless-2-hpb-feature-2.webp',
                 ],
                 [
                     'type' => 'textarea',
