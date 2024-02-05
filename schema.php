@@ -270,17 +270,15 @@ return [
             'default' => [
                 [
                     'image' => get_template_directory_uri() . '/image/zone-wireless-2-hpb-feature-2.webp',
-                    'title' => 'First featurette heading. <span
-                        class="text-body-secondary">It’ll blow your mind.</span>',
-                    'description' => 'Some great placeholder content for the first featurette here. Imagine some exciting
-                        prose here.',
+                    'title' => 'Pro X 2 Lightspeed. <span
+                        class="text-body-secondary">Đăng cấp giải trí.</span>',
+                    'description' => 'Được thiết kế cùng những người chơi chuyên nghiệp trên thế giới. Được chế tạo để giành chiến thắng.',
                 ],
                 [
                     'image' => get_template_directory_uri() . '/image//brio-100-hpb-feature.webp',
-                    'title' => 'Oh yeah, it’s that good. <span
-                        class="text-body-secondary">See for yourself.</span>',
-                    'description' => 'Another featurette? Of course. More placeholder content here to give you an idea of
-                        how this layout would work with some actual real-world content in place.',
+                    'title' => 'BRIO 100 <span
+                        class="text-body-secondary">Mẫu thiết kế mới nhất.</span>',
+                    'description' => 'Webcam Full HD 1080p với tính năng cân bằng sáng tự động, màn che ống kính gắn kèm và micrô tích hợp..',
                 ],
             ],
             'schema' => [

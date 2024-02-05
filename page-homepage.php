@@ -4,7 +4,7 @@
 <?php include 'header.php'; ?>
         
 <?php if ($themeData->get('show_home_slider')) { 
-    //print_r($themeData->get('home_sliders'));    
+   
 ?>
     <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
         <div class="carousel-indicators">
@@ -52,7 +52,7 @@
     <?php if ($themeData->get('home_articles_block_show')) { ?>
         <!-- Three columns of text below the carousel -->
         <div class="row justify-content-center">
-            <div class="col-md-10">
+            <div class="col-md-12">
                 <div class="row"> 
                 <?php
                     $numOfPosts = $themeData->get('home_articles_block_number');
@@ -105,6 +105,7 @@
         <!-- START THE FEATURETTES -->
         <?php foreach ($themeData->get('articles_block') as $key => $article) {
         ?>
+        <div class="container">
             <div class="row featurette">
                 <div class="col-md-7 <?= $key%2 == 1 ? 'order-md-2' : '' ?>">
                     <h2 class="featurette-heading fw-normal lh-1"><?php echo $article['title'] ?? ''; ?></h2>
@@ -114,6 +115,7 @@
                     <img class="featurette-image img-fluid mx-auto" src="<?php echo $article['image'] ?? ''; ?>" width="500px" alt="">
                 </div>
             </div>
+        </div>
             <hr class="featurette-divider">
         <?php } ?>
 
@@ -122,7 +124,7 @@
     <?php } ?>
 
     <?php if ($themeData->get('products_module_show')) { ?>
-        <section>
+        <section class="feature-products">
             <h2 class="text-center"><?php echo $themeData->get('products_module_title'); ?></h2>
             <div class="pb-5 pt-4">
                 <div class="row">
@@ -186,15 +188,8 @@
                                 }
                                 ?>
                                 <div class="col-lg-<?php echo 12/$count; ?>">
-                                    <div class="card d-block">
-                                        <div class="d-flex justify-content-between p-3">
-                                            <p class="lead mb-0 fw-semibold"><?=the_title()?></p>
-                                            <!-- <div
-                                            class="bg-info rounded-circle d-flex align-items-center justify-content-center shadow-1-strong"
-                                            style="width: 35px; height: 35px;">
-                                            <p class="text-white mb-0 small">x4</p>
-                                            </div> -->
-                                        </div><?php
+                                    <div class="card d-block  py-3"> 
+                                        <?php
                                             $images = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'single-post-thumbnail' );
                                         ?>
                                         <?php if (is_array($images)) { ?>
@@ -207,13 +202,19 @@
                                             <p class="small"><a href="#!" class="text-muted">Laptops</a></p>
                                             <p class="small text-danger"><s>$1099</s></p>
                                             </div> -->
-
-                                            <div class="d-flex justify-content-between mb-3">
-                                                <h5 class="mb-0">Price</h5>
+                                            <div class="d-flex justify-content-between">
+                                                <p class="lead mb-0 fw-semibold"><?=the_title()?></p>
+                                                <!-- <div
+                                                class="bg-info rounded-circle d-flex align-items-center justify-content-center shadow-1-strong"
+                                                style="width: 35px; height: 35px;">
+                                                <p class="text-white mb-0 small">x4</p>
+                                                </div> -->
+                                            </div>
+                                            <div class=" mb-3"> 
                                                 <h5 class="text-dark mb-0"><?=wc_price(get_post_meta(get_the_ID(), '_price', true))?></h5>
                                             </div>
 
-                                            <div class="text-center">
+                                            <div class="mb-3">
                                                 <a href="<?=esc_url(get_permalink())?>" class="btn btn-light">Xem chi tiết</a>
                                             </div>
 
