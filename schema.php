@@ -343,15 +343,15 @@ return [
             'label' => 'Go to top text',
             'default' => 'Back to Top',
         ],
+        // [
+        //     'session' => 'about-us',
+        //     'type' => 'boolean',
+        //     'name' => 'about_us_show',
+        //     'label' => 'Show About Us Module',
+        //     'default' => true,
+        // ],
         [
-            'session' => 'general',
-            'type' => 'boolean',
-            'name' => 'about_us_show',
-            'label' => 'Show About Us Module',
-            'default' => true,
-        ],
-        [
-            'session' => 'general',
+            'session' => 'about-us',
             'type' => 'text',
             'name' => 'about_us_title',
             'label' => 'About Us title',
