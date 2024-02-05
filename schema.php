@@ -2,8 +2,8 @@
 
 return [
     'sessions' => [
-        ['name' => 'general', 'title' => 'Thông tin chung'],
-        ['name' => 'menu', 'title' => 'Thanh điều hướng'],
+        ['name' => 'general', 'title' => 'Tổng quan'],
+        ['name' => 'menu', 'title' => 'Menus'],
         ['name' => 'home', 'title' => 'Trang chủ'],
         ['name' => 'about-us', 'title' => 'Về chúng tôi'],
     ],
@@ -135,7 +135,7 @@ return [
                     'type' => 'image',
                     'name' => 'image',
                     'label' => 'Slider Image',
-                    'default' => get_template_directory_uri() . '/image/bg-design-desktop.jpg',
+                    'default' => get_template_directory_uri() . '/image/future-positive-challenge-desktop.jpeg',
                 ],
                 [
                     'type' => 'text',
@@ -341,15 +341,15 @@ return [
             'label' => 'Go to top text',
             'default' => 'Back to Top',
         ],
+        // [
+        //     'session' => 'about-us',
+        //     'type' => 'boolean',
+        //     'name' => 'about_us_show',
+        //     'label' => 'Show About Us Module',
+        //     'default' => true,
+        // ],
         [
-            'session' => 'general',
-            'type' => 'boolean',
-            'name' => 'about_us_show',
-            'label' => 'Show About Us Module',
-            'default' => true,
-        ],
-        [
-            'session' => 'general',
+            'session' => 'about-us',
             'type' => 'text',
             'name' => 'about_us_title',
             'label' => 'About Us title',
