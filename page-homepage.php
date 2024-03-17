@@ -234,7 +234,7 @@
                                 <!-- Start Column 2 -->
                                 <div class="d-none col-lg-<?php echo 12/($count+1); ?>">
                                     <a class="product-item" href="<?=esc_url(get_permalink())?>">
-                                    <?php if (count(wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'single-post-thumbnail' ))) { ?>
+                                    <?php if (wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'single-post-thumbnail' )) { ?>
                                             <?php the_post_thumbnail('single-post-thumbnail', array('class' => 'img-fluid product-thumbnail')); ?>
                                         <?php } else { ?>
                                             <img src="<?=get_template_directory_uri()?>/image/empty_box.png" class="img-fluid product-thumbnail">
