@@ -1,4 +1,4 @@
-<div id="sidebar" role="complementary" class="pe-5 pt-4">
+<div id="sidebar" role="complementary" class="pe-5 pt-4 d-none">
     <div class="inner">
         <div class="filters">
 

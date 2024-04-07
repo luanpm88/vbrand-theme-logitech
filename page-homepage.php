@@ -49,81 +49,7 @@
 ================================================== -->
 <!-- Wrap the rest of the page in another container to center all the content. -->
 <div class="container marketing">
-    <?php if ($themeData->get('home_articles_block_show')) { ?>
-        <!-- Three columns of text below the carousel -->
-        <div class="row justify-content-center">
-            <div class="col-md-12">
-                <div class="row"> 
-                <?php
-                    $numOfPosts = $themeData->get('home_articles_block_number');
-                    $sort = $themeData->get('home_articles_block_sort');
-                    $args = array( 'numberposts' => $numOfPosts );
-                    $args['post_status'] = 'publish';
-                    if ($sort == 'newest') {
-                        $args['order'] = 'DESC';
-                        $args['orderby'] = 'post_date';
-                    } else if ($sort == 'oldest') {
-                        $args['order'] = 'ASC';
-                        $args['orderby'] = 'post_date';
-                    } else {
-                        $args['order'] = 'DESC';
-                        $args['orderby'] = 'post_date';
-                    }  
-                    $postslist = get_posts( $args );
-                ?>
-                <?php foreach ($postslist as $post) {
-                    $content = $post->post_content;
-                    $content = strip_tags($content);
-                    $shortDescription = substr($content, 0, 100);
-                    $thumbnail_url = get_the_post_thumbnail_url($post->ID, 'medium');
-                ?>
-                    <div class="col-lg-<?php echo 12/$numOfPosts; ?>">
-                        <?php if ($thumbnail_url) { ?> 
-                            <img src="<?php echo $thumbnail_url; ?>"  alt="">
-                        <?php } else { ?>
-                            <img src="<?php echo get_template_directory_uri(); ?>/image/placeholder.svg" width="140" height="140" alt="">
-                        <?php } ?>
-                        <h3 class="fw-normal mt-3"><?php echo $post->post_title; ?></h3>
-                        <p><?php echo $shortDescription; ?></p>
-                        <p>
-                            <a class="link-more" href="<?php echo get_permalink($post->ID); ?>">
-                                <?php echo $themeData->get('home_articles_block_view_button_text'); ?> &raquo;
-                            </a>
-                        </p>
-                    </div>
-                    <!-- /.col-lg-4 -->
-                <?php } ?>
-
-                </div>
-            </div>
-        </div><!-- /.row -->
-
-        <hr class="featurette-divider">
-    <?php } ?>
-
-    <?php if ($themeData->get('home_feature_block_show')) { ?>
-        <!-- START THE FEATURETTES -->
-        <?php foreach ($themeData->get('articles_block') as $key => $article) {
-        ?>
-        <div class="container">
-            <div class="row featurette">
-                <div class="col-md-7 <?= $key%2 == 1 ? 'order-md-2' : '' ?>">
-                    <h2 class="featurette-heading fw-normal lh-1"><?php echo $article['title'] ?? ''; ?></h2>
-                    <p class="lead mt-3"><?php echo $article['description'] ?? ''; ?></p>
-                </div>
-                <div class="col-md-5 <?= $key%2 == 1 ? 'order-md-1' : '' ?>">
-                    <img class="featurette-image img-fluid mx-auto" src="<?php echo $article['image'] ?? ''; ?>" width="500px" alt="">
-                </div>
-            </div>
-        </div>
-            <hr class="featurette-divider">
-        <?php } ?>
-
-        <!-- /END THE FEATURETTES -->
-
-    <?php } ?>
-
-    <?php if ($themeData->get('products_module_show')) { ?>
+<?php if ($themeData->get('products_module_show') == 'true') { ?>
         <section class="feature-products">
             <h2 class="text-center"><?php echo $themeData->get('products_module_title'); ?></h2>
             <div class="pb-5 pt-4">
@@ -259,6 +185,80 @@
         </section>
 
         <hr class="featurette-divider">
+
+    <?php } ?>
+    
+    <?php if ($themeData->get('home_articles_block_show') == 'true') { ?>
+        <!-- Three columns of text below the carousel -->
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="row"> 
+                <?php
+                    $numOfPosts = $themeData->get('home_articles_block_number');
+                    $sort = $themeData->get('home_articles_block_sort');
+                    $args = array( 'numberposts' => $numOfPosts );
+                    $args['post_status'] = 'publish';
+                    if ($sort == 'newest') {
+                        $args['order'] = 'DESC';
+                        $args['orderby'] = 'post_date';
+                    } else if ($sort == 'oldest') {
+                        $args['order'] = 'ASC';
+                        $args['orderby'] = 'post_date';
+                    } else {
+                        $args['order'] = 'DESC';
+                        $args['orderby'] = 'post_date';
+                    }  
+                    $postslist = get_posts( $args );
+                ?>
+                <?php foreach ($postslist as $post) {
+                    $content = $post->post_content;
+                    $content = strip_tags($content);
+                    $shortDescription = substr($content, 0, 100);
+                    $thumbnail_url = get_the_post_thumbnail_url($post->ID, 'medium');
+                ?>
+                    <div class="col-lg-<?php echo 12/$numOfPosts; ?>">
+                        <?php if ($thumbnail_url) { ?> 
+                            <img src="<?php echo $thumbnail_url; ?>"  alt="">
+                        <?php } else { ?>
+                            <img src="<?php echo get_template_directory_uri(); ?>/image/placeholder.svg" width="140" height="140" alt="">
+                        <?php } ?>
+                        <h3 class="fw-normal mt-3"><?php echo $post->post_title; ?></h3>
+                        <p><?php echo $shortDescription; ?></p>
+                        <p>
+                            <a class="link-more" href="<?php echo get_permalink($post->ID); ?>">
+                                <?php echo $themeData->get('home_articles_block_view_button_text'); ?> &raquo;
+                            </a>
+                        </p>
+                    </div>
+                    <!-- /.col-lg-4 -->
+                <?php } ?>
+
+                </div>
+            </div>
+        </div><!-- /.row -->
+
+        <hr class="featurette-divider">
+    <?php } ?>
+
+    <?php if ($themeData->get('home_feature_block_show')) { ?>
+        <!-- START THE FEATURETTES -->
+        <?php foreach ($themeData->get('articles_block') as $key => $article) {
+        ?>
+        <div class="container">
+            <div class="row featurette">
+                <div class="col-md-7 <?= $key%2 == 1 ? 'order-md-2' : '' ?>">
+                    <h2 class="featurette-heading fw-normal lh-1"><?php echo $article['title'] ?? ''; ?></h2>
+                    <p class="lead mt-3"><?php echo $article['description'] ?? ''; ?></p>
+                </div>
+                <div class="col-md-5 <?= $key%2 == 1 ? 'order-md-1' : '' ?>">
+                    <img class="featurette-image img-fluid mx-auto" src="<?php echo $article['image'] ?? ''; ?>" width="500px" alt="">
+                </div>
+            </div>
+        </div>
+            <hr class="featurette-divider">
+        <?php } ?>
+
+        <!-- /END THE FEATURETTES -->
 
     <?php } ?>
 

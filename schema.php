@@ -36,28 +36,28 @@ return [
             'max' => 10,
             'default' => [
                 [
-                    'show' => true,
+                    'show' => 'true',
                     'title' => 'Trang chủ',
                     'type' => 'page-homepage.php',
                 ],
                 [
-                    'show' => true,
+                    'show' => 'true',
                     'title' => 'Giới thiệu',
                     'type' => 'page-aboutus.php',
                 ],
 
                 [
-                    'show' => true,
+                    'show' => 'true',
                     'title' => 'Gian Hàng',
                     'type' => 'shop',
                 ],
                 [
-                    'show' => true,
+                    'show' => 'true',
                     'title' => 'Tin tức',
                     'type' => 'page-news.php',
                 ],
                 [
-                    'show' => true,
+                    'show' => 'true',
                     'title' => 'Liên hệ',
                     'type' => 'page-contact.php',
                 ],
@@ -69,7 +69,7 @@ return [
                     'type' => 'boolean',
                     'name' => 'show',
                     'label' => 'Hiển thị',
-                    'default' => true,
+                    'default' => 'true',
                 ],
                 [
                     'type' => 'text',
@@ -101,7 +101,7 @@ return [
             'type' => 'boolean',
             'name' => 'show_home_slider',
             'label' => 'Show home slider',
-            'default' => true,
+            'default' => 'true',
         ],
         // sliders
         [
@@ -170,7 +170,7 @@ return [
             'type' => 'boolean',
             'name' => 'products_module_show',
             'label' => 'Show Products Module',
-            'default' => true,
+            'default' => 'true',
         ],
         [
             'session' => 'home',
@@ -220,7 +220,7 @@ return [
             'type' => 'boolean',
             'name' => 'home_articles_block_show',
             'label' => 'Home Articles Block: Show',
-            'default' => true,
+            'default' => 'false',
         ],
         [
             'session' => 'home',
@@ -259,7 +259,7 @@ return [
             'type' => 'boolean',
             'name' => 'home_feature_block_show',
             'label' => 'Home Feature Block: Show',
-            'default' => true,
+            'default' => 'true',
         ],
         [
             'session' => 'home',
@@ -310,7 +310,7 @@ return [
             'type' => 'boolean',
             'name' => 'articles_module_show',
             'label' => 'Show Articles Module',
-            'default' => true,
+            'default' => 'true',
         ],
         [
             'session' => 'home',

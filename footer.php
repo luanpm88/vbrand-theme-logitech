@@ -81,7 +81,7 @@
         </div>
       </div>
     </div>
-    <div class="social-email-row">
+    <div class="social-email-row d-none">
       <div class="social-ctn">
         <div class="pangea-cmp pangea-social-icons ">
           <a href="http://www.facebook.com/Logitech" class="p-social-icon-link " aria-label="Thích chúng tôi trên Facebook" data-analytics-title="like-us-on-facebook" target="_blank" rel="noopener noreferrer">
@@ -145,7 +145,7 @@
         </div>
       </div>
     </div>
-    <div class="copyright-locale-row">
+    <div class="copyright-locale-row d-none">
       <div class="copyright-links-container">
         <div class="copyright-ctn"> ©2024 Logitech. Bảo lưu mọi quyền </div>
         <ul class="copyright-links-list">
@@ -183,9 +183,7 @@
             
         </main>
         
-        <script src="https://getbootstrap.com/docs/5.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
         <?php
             wp_footer();
         ?>
