@@ -19,9 +19,9 @@
             ?>
                 <div class="carousel-item <?= ($key == 0) ? 'active' : '' ?>">
                     <img class="bd-placeholder-img"
-                        src="<?php echo $slider['image'] ?? ''; ?>"
+                        src="<?php echo $themeData->get('banner_image'); ?>"
                     />
-                    <div class="container">
+                    <div class="container d-none">
                         <div class="carousel-caption text-start">
                             <h1><?php echo $slider['title'] ?? ''; ?></h1>
                             <p class="opacity-75">
